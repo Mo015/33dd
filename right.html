@@ -1,0 +1,1645 @@
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="initial-scale=1,maximum-scale=1,user-scalable=no"
+  />
+  <title>Realistic water visualization in 3D | Sample | ArcGIS API for
+    JavaScript 4.25</title>
+    
+    
+    <script src="https://unpkg.com/deck.gl@8.1.0/dist.min.js"></script>
+    <script src="https://unpkg.com/@deck.gl/geo-layers@8.1.0/dist.min.js"></script>
+    <script src="https://unpkg.com/@deck.gl/arcgis@8.1.0/dist.min.js"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/dark/main.css" />
+  <script
+  type="module"
+  src="https://js.arcgis.com/calcite-components/1.0.0-beta.97/calcite.esm.js"
+></script>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://js.arcgis.com/calcite-components/1.0.0-beta.97/calcite.css"
+/>
+  <script src="pro1.js"></script>
+  <script>
+    var dojoConfig = {
+      packages: [
+        {
+          name: "geolocate",
+          location: "//2gis.github.io/mock-geolocation/dist",
+          main: "geolocate"
+        }
+      ]
+    };
+  </script>
+  <script src="https://js.arcgis.com/4.25/"></script>
+</head>
+<style>
+  
+
+
+  html,
+  body{
+    padding: 0;
+    display: flex; justify-content:baseline;
+    margin: 0;
+    height: 100%;
+    position: absolute;
+    width:100%;
+    right: 0%;
+    background-image:linear-gradient(60deg,rgb(67, 13, 147),rgb(13, 0, 41),rgb(13, 0, 41),rgb(67, 13, 147));
+  }
+  @media   (max-width: 700PX) {
+     #body {
+     
+width: 700PX;
+  }
+}
+  #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;left: 0%;
+    position: absolute;
+    width:85%;
+    right: 0%;
+background-color: #FFF;
+  }
+
+  @media   (max-width: 700PX) {
+    #viewDiv {
+     
+      position: absolute;
+    width:75%;  }
+}
+  #view2Div {
+    padding: 0;right: 0%;
+    padding-bottom: 0;
+    position: fixed;
+    height: 20%;
+    width:15%;   
+
+  }
+  @media   (max-width: 700PX) {
+  #view2Div {
+      position: fixed;
+    height: 20%;
+    width:25%;   
+  }
+}
+
+  #menu {
+    background-color: #430707;
+    padding: 0cm;
+    width:15%;
+    height: 80%;top: 20%;
+    position: fixed; right: 0%;
+    background-image:linear-gradient(45deg,rgb(67, 13, 147),rgb(13, 0, 41),rgb(13, 0, 41),rgb(67, 13, 147));
+border-radius: 2%;
+  }
+  @media   (max-width: 700PX) {
+ #menu {
+      width:25%;
+    height: 80%;top: 20%;
+    position: fixed; font-size: small;
+  }
+}
+@media   (max-width: 700PX) {
+    div #calm label  {
+     
+ font-size: small;display: grid;
+  }
+}@media   (max-width: 700PX) {
+    div #calm input  {
+     
+ display: grid;
+  }
+}
+@media   (max-width: 700PX) {
+    div #rippled label  {
+     
+ font-size: small;display: grid;
+  }
+}
+@media   (max-width: 700PX) {
+    div #rippled input  {
+     
+ display: grid;
+  }
+}
+@media   (max-width: 700PX) {
+    div #slight label   {
+     
+ font-size: small;display: grid;
+  }
+}
+@media   (max-width: 700PX) {
+    div #slight input  {
+     
+ display: grid;
+  }
+}
+@media   (max-width: 700PX) {
+    div #moderate  label {
+     
+ font-size: small;display: grid;
+  }
+}
+@media   (max-width: 700PX) {
+    div #moderate input  {
+     
+display: grid;
+  }
+}
+@media   (max-width: 700PX) {
+    div #menu  li {
+     
+ font-size: medium;
+  }
+}
+
+#heattmapp{
+  color: red;right:0%; bottom: 0%;   font-size: large;
+
+}
+#Wavedirection{
+  color: red;right:0%; bottom: 0%; margin-bottom: 11%;  font-size: large;
+
+}
+
+
+#icon3d{
+  color: red;right:0%; bottom: 0%;   font-size: large;
+
+}
+#slider-container{
+width:98%; height:19%;
+}
+  #reflection
+  {
+  color: rgba(255, 255, 255, .5);
+  display: inline-block;
+  margin: 0px;
+  position: relative;
+  text-decoration: none;
+  padding-top:0px 0;
+
+
+}
+  #reflection:before {
+    content: attr(data-text);
+    border-top: 3px solid orange;
+    position: absolute;
+    left: 0;
+    top: -3px;
+    color: #FFF;
+    white-space: nowrap;
+    width: 0%;
+    overflow: hidden;
+    padding-top:0px 0;
+    transition: .4s;
+  }
+  #reflection:hover:before {
+  width: 100%;
+  }
+
+#declutters {
+  color: rgba(255, 255, 255, .5);
+  display: inline-block;
+  margin: 0px;
+  position: relative;
+  text-decoration: none;
+  padding-top:0px 0; font-size: medium; width: 100%;
+
+
+}
+  #declutters:before {
+    content: attr(data-text);
+    border-top: 3px solid orange;
+    position: absolute;
+    left: 0;
+    top: -3px;
+    color: #FFF;
+    white-space: nowrap;
+    width: 0%;
+    overflow: hidden;
+    padding-top:0px 0;
+    transition: .4s;
+  }
+  #declutters:hover:before {
+  width: 100%;
+  }
+
+#rscene{
+  color: rgba(255, 255, 255, .5);
+
+  margin: 0px;
+  position: relative;justify-content:baseline;
+  text-decoration: none;
+  padding-top:0px 0;  font-size: xx-small;}
+
+
+
+  #rscene:before {
+    content: attr(data-text);
+    border-top: 3px solid orange;
+    position: absolute;
+    left: 0;
+    top: -5px;
+    color: #FFF;
+    white-space: nowrap;
+    width: 0%;font-size: xx-small;
+    overflow: hidden;
+    padding-top:0px 0;
+    transition: .4s;
+  }
+  #rscene:hover:before {
+  width: 100%;
+  }
+
+  #waveSlider {
+    height: 38px;
+    margin-top: 1.8em;
+  }
+
+  .color-btn {
+    border: 0.2px solid rgb(43, 0, 215);
+    width: 40px;
+    height: 15px;
+    cursor: pointer;
+  }
+
+  .color-btn:hover {
+    width: 45px;
+    height:20px;
+    transition-duration: 0.6s;
+    border-radius: 30%;
+    border: solid #000acb;
+  }
+
+  #navy {
+    background-color: #25427c;
+  }
+  @media   (max-width: 700PX) {
+    div #navy  {
+     
+width: 25%;  }
+}
+  #green {
+    background-color: #039962;
+  }
+  @media   (max-width: 700PX) {
+    div #green   {
+     
+width: 25%;
+  }
+}
+  #turqoise {
+    background-color: #a2f9f5;
+  }
+  @media   (max-width: 700PX) {
+    div #turqoise   {
+     
+width: 25%;
+  }
+}
+
+
+      #cityStyle label {
+        padding-right: 10px;font-size: xx-small;
+        cursor: pointer;width: 3cm;
+      }   
+
+  
+    select {
+      font-family: "Avenir Next W00", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  .sassy-theme .esri-widget,
+  .sassy-theme .esri-widget--button,
+  .sassy-theme .esri-menu,
+  .sassy-theme .esri-popup__main-container,
+  .sassy-theme .esri-popup .esri-popup__pointer-direction,
+  .sassy-theme .esri-popup .esri-popup__button,
+  .sassy-theme .esri-button,
+  .sassy-theme .esri-input,
+  .sassy-theme .esri-widget a {
+    background-image:linear-gradient(60deg,rgb(67, 13, 147),rgb(13, 0, 41),rgb(13, 0, 41),rgb(67, 13, 147));
+    color: rgb(31, 167, 221); 
+  }
+
+  .sassy-theme .esri-widget--button:focus,
+  .sassy-theme .esri-widget--button:hover,
+  .sassy-theme .esri-menu li:focus,
+  .sassy-theme .esri-menu li:hover {
+    background-color: rgb(31, 244, 244);
+    color: #fff;
+  }
+
+  .sassy-theme .esri-button:focus,
+  .sassy-theme .esri-button:hover {
+    color: #fff;
+  }
+
+  .sassy-theme .esri-search__input::-moz-placeholder {
+    color: #ccc;
+    opacity: 1;
+  }
+
+  .sassy-theme .esri-search__input:-ms-input-placeholder {
+    color: #ccc;
+  }
+
+  .sassy-theme .esri-search__input::-webkit-input-placeholder {
+    color: #ccc;
+  }
+
+ 
+    #menu2 {
+    padding: 0cm;  height: 10%;
+  }
+
+  #menu2 > div {
+    padding: 0.4em; 
+  }
+</style>
+<script>require([
+    "geolocate","esri/widgets/Directions",
+        "esri/layers/RouteLayer","esri/layers/GraphicsLayer",
+    "esri/core/reactiveUtils","esri/renderers/HeatmapRenderer","esri/core/promiseUtils","esri/renderers/UniqueValueRenderer", "esri/widgets/Locate","esri/widgets/Search", "esri/widgets/NavigationToggle", "esri/widgets/Compass", "esri/widgets/Track", "esri/WebMap", "esri/widgets/Editor", "esri/widgets/HistogramRangeSlider",
+    "esri/smartMapping/statistics/histogram","esri/Graphic",
+
+    "esri/WebScene", "esri/views/GroundView", "esri/layers/support/LabelClass", "esri/symbols/LabelSymbol3D", "esri/layers/ElevationLayer", "esri/widgets/ShadowCast",
+    "esri/widgets/ScaleRangeSlider", "esri/widgets/Popup", "esri/widgets/LineOfSight",
+    "esri/widgets/Legend", "esri/Map", "esri/widgets/ElevationProfile",
+    "esri/views/MapView", "esri/widgets/DirectLineMeasurement3D",
+    "esri/views/SceneView", "esri/widgets/Fullscreen", "esri/layers/SceneLayer",
+    "esri/widgets/Expand", "esri/webscene/SunLighting", "esri/webscene/VirtualLighting",
+    "esri/widgets/AreaMeasurement3D", "esri/widgets/Weather",
+    "esri/layers/FeatureLayer", "esri/widgets/CoordinateConversion", "esri/widgets/Daylight",
+    "esri/widgets/Slider", "esri/widgets/ScaleBar", "esri/widgets/LayerList",
+    "esri/widgets/BasemapGallery", "esri/widgets/Swipe", "esri/widgets/Zoom"
+  ], (geolocate,Directions,RouteLayer,GraphicsLayer,reactiveUtils,HeatmapRenderer,promiseUtils,UniqueValueRenderer,Locate, Search, NavigationToggle, Compass, Track, WebMap, Editor, HistogramRangeSlider, histogram,Graphic, WebScene, GroundView, LabelClass, LabelSymbol3D, ElevationLayer, ShadowCast, ScaleRangeSlider, Popup, LineOfSight, Legend, Map,
+    ElevationProfile, MapView, DirectLineMeasurement3D, SceneView, Fullscreen, SceneLayer,
+    Expand, SunLighting, VirtualLighting, AreaMeasurement3D, Weather, FeatureLayer,
+    CoordinateConversion, Daylight, Slider, ScaleBar, LayerList, BasemapGallery, Swipe, Zoom) => {
+
+    /***********
+    * webscene 
+    ************/
+
+
+    const map = new Map({
+      basemap: "hybrid",
+    });
+    const webscene = new WebScene({
+      portalItem: {
+        id: "229dac7571d74fea897260607ef925db"
+      }
+    });
+    const view = new SceneView({
+      map: webscene,
+      container: "viewDiv",  
+      center: [31.479367, 30.584346],
+      zoom: 15,
+      ui: {
+        components: ["attribution"] // replace default set of UI components
+      }
+    });
+    let scenelayedr = new SceneLayer({
+      portalItem: {
+        id: "1d9100a6ba3043fcb245a0082296f18d"
+      },});
+webscene.add(scenelayedr)
+
+
+
+    // waterLayer
+    // waterLayer
+    // waterLayer
+    // waterLayer
+    // waterLayer
+    // waterLayer
+    // waterLayer
+    // waterLayer
+    // waterLayer
+    // waterLayer
+    // waterLayer
+    // waterLayer
+    const waterLayer = new FeatureLayer({
+      portalItem: {
+        id: "7778a233abce46b18977540d4c483514"
+      }, elevationInfo: {
+        mode: "absolute-height",
+        offset: 15
+      }, renderer: {
+        type: "simple",
+        symbol: {
+          type: "polygon-3d",
+          symbolLayers: [{
+            type: "water",
+            waveDirection: 180,
+            color: "#325B68",
+            waveStrength: "moderate",
+            waterbodySize: "large"
+          }]
+        }
+      }
+    });
+
+
+    webscene.add(waterLayer);
+    
+
+    // slider water
+    // slider water
+    // slider water
+    // slider water
+    // slider water
+    // slider water
+    // slider water
+    // slider water
+    // slider water
+    // slider water
+    // slider water
+    // slider water
+    // slider water
+    const slider = new Expand({
+    content: new Slider({
+        container: "waveSlider",
+        min: 0,
+        max: 360,
+        visibleElements: {
+            labels: true
+        },
+        precision: 0,
+        values: [260]
+    })
+  }); slider.on("thumb-drag", (event) => {
+    const value = parseInt(event.value);
+    const renderer = waterLayer.renderer.clone();
+    renderer.symbol.symbolLayers.getItemAt(0).waveDirection = value;
+    waterLayer.renderer = renderer;
+  });
+
+  const waveStrengthRadio =
+    document.getElementsByName("waveStrengthRadio");
+
+  for (let i = 0; i < waveStrengthRadio.length; i++) {
+    const element2 = waveStrengthRadio[i];
+    element2.addEventListener("change", (event) => {
+        const renderer = waterLayer.renderer.clone();
+        renderer.symbol.symbolLayers.getItemAt(0).waveStrength =
+            event.target.value;
+        waterLayer.renderer = renderer;
+    });
+  }
+
+  function setWaterColor(color) {
+    const renderer = waterLayer.renderer.clone();
+    renderer.symbol.symbolLayers.getItemAt(0).color = color;
+    waterLayer.renderer = renderer;
+  }
+
+  document.getElementById("navy").addEventListener("click", () => {
+    setWaterColor("#25427c");
+  });
+  document.getElementById("green").addEventListener("click", () => {
+    setWaterColor("#039962");
+  });
+  document.getElementById("turqoise").addEventListener("click", () => {
+    setWaterColor("#a2f9f5");
+  });
+
+  document
+    .getElementById("reflection")
+    .addEventListener("click", (event) => {
+        view.environment.lighting.waterReflectionEnabled =
+            event.target.checked;
+  });
+
+// heatmap
+// heatmap
+// heatmap
+// heatmap
+// heatmap
+// heatmap
+// heatmap
+// heatmap
+// heatmap
+// heatmap
+// heatmap
+// heatmap
+// heatmap
+const colorStops = [
+  { ratio: 0, color: "rgba(255, 0, 0, 0)" ,},
+
+  { ratio: 1 /30, color: "blue" },
+    { ratio: 30 /70, color: "red" },
+    { ratio: 70 / 100, color: "green" },
+  ];
+
+  const heatmapRenderer = new HeatmapRenderer({
+    legendOptions: {
+      minLabel: "20",
+      maxLabel: "100"
+    },
+    colorStops: colorStops,
+    referenceScale: true,
+    maxDensity: 0.0035,
+    radius: 30,
+    minDensity: 0
+  });
+  const popupTemplate = {
+    // autocasts as new PopupTemplate()
+    title: "density every hour is {density}",
+    content: "<p>{density}</p>" // Show year and month
+  };
+
+  const incidentsLayer = new FeatureLayer({
+    portalItem: {
+      id: "a52eda2d2b3b41679bb78e418dfe8dad"
+    }  ,   popupTemplate: popupTemplate,
+    opacity: 0.75,
+    renderer: heatmapRenderer
+  });
+  webscene.add(incidentsLayer);
+  view.whenLayerView(incidentsLayer).then((layerView) => {
+          const field = "density";
+          const min = 20;
+          const max = 100;
+
+          histogram({
+            layer: incidentsLayer,
+            field: field,
+            numBins: 100,
+            minValue: min,
+            maxValue: max
+          }).then((histogramResponse) => {
+            const slider1 = new HistogramRangeSlider({
+              bins: histogramResponse.bins,
+              min: min,
+              max: max,
+              values: [min, max],
+              excludedBarColor: "#524e4e",
+              rangeType: "between",
+              container: document.getElementById("slider-container")
+            });
+
+            slider1.on(
+              ["thumb-change", "thumb-drag", "segment-drag"],
+              (event) => {
+                filterByHistogramRange(field).catch((error) => {
+                  if (error.name !== "AbortError") {
+                    console.error(error);
+                  }
+                });
+              }
+            );
+
+            const filterByHistogramRange = promiseUtils.debounce((field) => {
+              layerView.filter = {
+                where: slider1.generateWhereClause(field)
+              };
+            });
+
+            const filterExpand = new Expand({
+              view: view,
+              content: document.getElementById("controls"),
+              expandIconClass: "esri-icon-filter",
+              expanded: true
+            });
+
+            view.ui.add(filterExpand, "hio");
+          });
+        });
+    // Search
+    // Search
+    // Search
+    // Search
+    // Search
+    // Search
+    // Search
+    // Search
+    // Search
+    // Search
+    // Search
+    // Search
+    // Search
+    // Search
+    // Search
+    let searchWidget = new Search({
+        view: view
+    });
+    view.ui.add(searchWidget, { position: "top-left", index: 0, sources: ["https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"] });
+
+    // Zoom
+    // Zoom
+    // Zoom
+    // Zoom
+    // Zoom
+    // Zoom
+    // Zoom
+    // Zoom
+    // Zoom
+    // Zoom
+    // Zoom
+    // Zoom
+    // Zoom
+    let zoom = new Zoom({
+      view: view
+    });
+    view.ui.add(zoom, "top-left",{index:2})
+    
+// navigationToggle
+    // navigationToggle
+    // navigationToggle
+    // navigationToggle
+    // navigationToggle
+    // navigationToggle
+    // navigationToggle
+    // navigationToggle
+    // navigationToggle
+    // navigationToggle
+    // navigationToggle
+    let navigationToggle = new NavigationToggle({
+      view: view
+    }); view.ui.add(navigationToggle, "top-left",{index:1})
+    // compass
+    // compass
+    // compass
+    // compass
+    // compass
+    // compass
+    // compass
+    // compass
+    // compass
+    // compass
+    // compass
+    // compass
+    // compass
+    let compass = new Compass({
+      view: view
+    }); view.ui.add(compass, "top-left",{index:0})
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    // locateWidget
+    let locateWidget = new Locate({
+  view: view,   // Attaches the Locate button to the view
+});
+
+view.ui.add(locateWidget, "top-left");
+
+    // located animation(لحركة)
+    // located animation
+    // located animation
+    // located animation
+    // located animation
+    // located animation
+    // located animation
+    // located animation
+    // located animation
+    // located animation
+    // located animation
+    // located animation
+    // stubGeolocation();
+
+    // const track = new Track({
+    //   view: view,
+    //   goToLocationEnabled: false // disable this since we want to control what happens after our location is acquired
+    // });
+    // view.ui.add(track, "top-left",{index:4});
+
+    // view.when(() => {
+    //   let prevLocation = view.center;
+    //   track.on("track", () => {
+    //     const location = track.graphic.geometry;
+    //     view
+    //       .goTo({
+    //         center: location,
+    //         tilt: 50,
+    //         scale: 250,
+    //         heading: 360 - getHeading(location, prevLocation), // only applies to SceneView
+    //         rotation: 360 - getHeading(location, prevLocation) // only applies to MapView 
+    //       })
+    //       .catch((error) => {
+    //         if (error.name != "AbortError") {
+    //           console.error(error);
+    //         }
+    //       });
+    //     prevLocation = location.clone();
+    //   });
+    //   track.stop();
+    // });
+    // function getHeading(point, oldPoint) {
+    //   // get angle between two points
+    //   const angleInDegrees =
+    //     (Math.atan2(point.y - oldPoint.y, point.x - oldPoint.x) * 180) /
+    //     Math.PI;
+    //   // move heading north
+    //   return -90 + angleInDegrees;
+    // }
+    // // geolocation simulator
+    // function stubGeolocation() {
+    //   let coords = [
+    //     {
+    //       lng: 31.480119,
+    //       lat: 30.585613
+    //     }, {
+    //       lng: 31.480220,
+    //       lat:30.585936
+    //     }, {
+    //       lng:31.479258,
+    //       lat: 30.586428
+    //     }, {
+    //       lng: 31.480501,
+    //       lat:30.586538
+    //     }, {
+    //       lng:31.480536,
+    //       lat: 30.587706
+    //     }, {
+    //       lng: 31.481024,
+    //       lat: 30.588449
+    //     }, {
+    //       lng: 31.482134,
+    //       lat: 30.589159
+    //     }, {
+    //       lng:31.483658,
+    //       lat:30.589401
+    //     }, 
+
+    //   ],
+    //     currentCoordIndex = 0;
+
+    //   geolocate.use();
+
+    //   setInterval(() => {
+    //     geolocate.change(coords[currentCoordIndex]);
+    //     currentCoordIndex = (currentCoordIndex + 1) % coords.length;
+    //   }, 4500);
+    // }
+
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    // mapview2 (الخريطة الركنية)
+    
+    
+    deck.loadArcGISModules().then((arcGIS) => {
+          const layer = new arcGIS.DeckLayer();
+
+          setInterval(() => {
+            layer.deck.layers = [
+              new deck.TripsLayer({
+                id: "trips",
+                data:[
+    {
+      "vendor": 0,
+      "path": [
+    
+     [31.482795330678,30.588328354764],      [31.482850378000, 30.588541338000],
+     [31.482797016000,30.588604566000],       [31.482722631000, 30.588644225000], 
+     [31.482654614000,30.588642503000], [31.482586459000, 30.588627453000],   
+     [31.482586459000,30.588627453000],   [31.482533744000,30.588582636000],   
+     [ 31.482485001000,30.588529715000],  [31.482408374000, 30.588403725000],  
+     [31.4824250,  30.5884075], [ 31.4821583, 30.5873285],  [ 31.4815067, 30.5857164],  
+    ],
+      "timestamps": [ 200, 210, 220,230,240,250,260,270,280,290,350,380,400]
+    },
+   
+    {
+      "vendor": 0,
+      "path": [
+      [ 31.4827864, 30.5883110],   [ 31.4822004, 30.5872019],
+      [31.4816014,  30.5857135],
+   ],
+      "timestamps": [ 400, 300,200,]
+    },
+    
+   
+   {
+     "vendor": 1,
+     "path": [
+     [ 31.482408374000,30.588403725000],   [31.482792120000,30.588321616000],
+  ],
+     "timestamps": [  250,300,]
+   },
+   
+   {
+     "vendor": 0,
+     "path": [
+     [31.482133204000,30.587267149000],   [ 31.481304403000,30.587554618000],
+     [31.481195774000, 30.587580016000],
+     [31.481108599000, 30.587595025000],   [ 31.480997288000,30.587603107000],
+     [31.480431343000, 30.587704702000],    [31.479943074000,30.587819916000],   
+
+
+  ],
+     "timestamps": [370,380,390,400,410,420,430]
+   },
+   {
+     "vendor": 0,
+     "path": [
+     [31.482399908000,30.588402657000], 
+       [31.481377101000,30.588662479000],
+     [31.480887066000,30.588748689000],
+     [31.480725371000,30.588775088000], 
+       [ 31.480598932000,30.588787765000],
+     [31.480486908000, 30.588778682000], 
+        [31.480375490000,30.588747800000], 
+      [31.480302221000,30.588706018000], 
+        [ 31.480242247000,30.588646763000],
+     [31.480012918000,30.587986397000],  
+     [31.479796045000, 30.587535266000], 
+     
+  ],
+     "timestamps": [ 220,230,240,250,260,270,280,290.300,310,320,330]
+   },
+   
+   {
+     "vendor": 1,
+     "path": [
+     [31.482586459000,30.588627453000], 
+
+     [31.482494862000,30.588818807000], 
+       [31.481369450000,30.589142085000],
+     [31.481335228000,30.589133979000],
+     [31.481299690000,30.589105631000], 
+       [31.481117695000,30.588873610000],
+     [31.480885166000, 30.588754911000], 
+
+  
+     
+  ],
+     "timestamps": [ 250,255,260,275,280,285,290]
+   },
+   {
+     "vendor": 1,
+     "path": [
+     [31.481876796000,30.588532060000],   [31.481742901000,30.588134074000],
+     
+  ],
+     "timestamps": [ 230,240,]
+   }, {
+     "vendor": 1,
+     "path": [
+     [31.480012636000,30.587986479000],   [31.479175426000,30.588205735000],
+     
+  ],
+     "timestamps": [ 320,330,]
+   }, {
+     "vendor": 1,
+     "path": [
+     [31.479175426000,30.588205735000],   [31.479188085000,30.588324300000],
+     [31.479359652000,30.588760744000],
+     
+  ],
+     "timestamps": [ 350,340,330]
+   },{
+     "vendor": 1,
+     "path": [
+     [31.479175426000,30.588205735000],   [31.478951764000,30.587947622000],
+
+     
+  ],
+     "timestamps": [ 330,340,]
+   },
+   {
+     "vendor": 1,
+     "path": [
+     [31.480997279000,30.587603093000],   [ 31.480715654000,30.586897764000],
+     [31.480710293000,30.586864234000],
+     [31.480711624000,30.586829595000],   [ 31.480718341000,30.586796117000],
+     [31.480920582000, 30.586338194000],   
+  ],
+     "timestamps": [ 400,405,410,415,420,425]
+   },{
+     "vendor": 1,
+     "path": [
+     [31.480431336000,30.587704698000],   [ 31.480208713000,30.587166696000],
+     [31.480203194000,30.587127191000],
+     [31.480210451000,30.587087551000],   [ 31.480227768000,30.587052711000],
+     [31.480255392000, 30.587023643000],    [31.480290331000, 30.587000489000], 
+      [31.480709550000,30.586864698000],  
+  ],
+     "timestamps": [ 410,415,420,425,430,435,440,445]
+   },{
+     "vendor": 1,
+     "path": [
+     [31.480056798000,30.587798026000],   [ 31.479895646000,30.587479024000],
+     
+  ],
+     "timestamps": [430,450]
+   },
+   {
+     "vendor": 0,
+     "path": [
+     [31.481625837000,30.585766161000],   [ 31.482973370000,30.585245434000],
+     [31.483499251000,30.585123400000],
+     [31.484033900000,30.584953788000],   [31.484973695000,30.584644132000],
+     [31.486177818000,30.584245775000],   
+  ],
+     "timestamps": [ 210,240,280,300,350,400]
+   },{
+     "vendor": 1,
+     "path": [
+     [31.483499251000,30.585123400000],   [ 31.483719751000,30.585632393000],
+     
+  ],
+     "timestamps": [280,240,]
+   },{
+     "vendor": 1,
+     "path": [
+     [31.484697385000,30.586168049000],   [ 31.484033900000,30.584953788000, ]
+     
+  ],
+     "timestamps": [240,280,]
+   },
+   {
+     "vendor": 1,
+     "path": [
+     [31.485050578000,30.586008598000],   [ 31.484734771000,30.585650094000],
+     [31.484726655000,30.585599354000],
+     [31.484740964000,30.585553616000],   [31.484777028000,30.585521942000],
+     [31.485326340000,30.585327586000],   
+  ],
+     "timestamps": [ 210,215,220,225,230,240]
+   },
+   {
+     "vendor": 1,
+     "path": [
+     [31.485471311000,30.585767780000],   [31.485478301000,30.585696478000],
+     [31.485460126000,30.585590224000],
+     [31.485325352000,30.585328094000],   [31.484973695000,30.584644132000],
+     [31.485326340000,30.585327586000],   
+  ],
+     "timestamps": [ 230,240,250,260,270,280]
+   },
+   {
+     "vendor": 1,
+     "path": [
+     [31.486292763000,30.586094593000],   [31.485506692000,30.586113884000],
+     [31.485444273000,30.586103577000],
+     [31.485384145000,30.586082389000],   [31.485263888000,30.586085252000],
+     [31.485208914000,30.586090406000],       [31.485155084000,30.586075517000],
+     [31.485050578000,30.586008598000],   [31.484973597000,30.586068365000],
+     [31.484492659000,30.586245921000],
+  ],
+     "timestamps": [ 140,150,160,170,180,190,200,210,230,240]
+   },{
+     "vendor": 1,
+     "path": [
+     [31.481861485000,30.586329805000],   [ 31.482591981000,30.586106842000, ]
+     
+  ],
+     "timestamps": [250,370,]
+   },
+   {
+     "vendor": 0,
+     "path": [
+     [31.484582285000,30.585957401000],   [31.484274436000,30.586056904000],
+     [31.484040200000,30.586070344000],
+     [31.483905496000,30.586114272000],   [31.483631479000,30.586270327000],
+     [31.483525804000,30.586383374000],       [31.483417991000,30.586468241000],
+     [31.482075557000,30.586872306000], 
+  ],
+     "timestamps": [ 245,250,260,270,280,290,300,310,]
+   },
+   {
+     "vendor": 1,
+     "path": [
+     [31.482703193000,30.588115699000],   [31.483278964000,30.587944188000],
+     [31.483326073000,30.587921600000],
+     [31.483346045000,30.587891643000],   [31.483347913000,30.587848467000],
+     [31.482852087000,30.586638575000],     
+  ],
+     "timestamps": [ 360,370,380,390,400,410]
+   }, {
+     "vendor": 1,
+     "path": [
+     [31.482853390000,30.588538699000],   [31.482978529000,30.588866173000],
+     [31.483305179000,30.588776345000],
+     [31.483371545000,30.588779916000],   [31.483894000000,30.588523701000],
+     [31.484285300000,30.588400357000],       [31.484685106000,30.588438636000],
+     [31.484880756000,30.588532208000],   [31.485329648000,30.588367379000],
+     [31.485382052000,30.588374068000],
+     [31.485421076000,30.588410862000],
+     [31.485432225000,30.588462151000],
+     [31.485409926000,30.588506749000],
+     [31.484968373000,30.588691960000],
+     [31.484941152000,30.588762734000],
+     [31.483552671000,30.589193150000],
+     [31.483575006000,30.589276528000],
+     [31.482077519000,30.589775350000],
+  ],
+     "timestamps": [ 210,220,230,240,250,260,270,280,290,295,300,305,310,315,320,340,350,360]
+   },
+   {
+     "vendor": 1,
+     "path": [
+     [31.483552671000,30.589193150000],   [31.483371545000,30.588779916000],
+      
+  ],
+     "timestamps": [ 340,360]
+   },
+   {
+     "vendor": 1,
+     "path": [
+     [31.484941152000,30.588762734000],   [31.484855508000,30.588520133000],
+      
+  ],
+     "timestamps": [ 320,330]
+   },{
+     "vendor": 1,
+     "path": [
+     [31.483575006000,30.589276528000],   [31.483718174000,30.589238446000],
+     [31.483794828000,30.589257609000],
+     [31.483831413000,30.589306389000],   [31.484877909000,30.588970441000],
+     [31.484917156000,30.588936903000],       [31.484941417000,30.588888380000],
+     [31.484946412000,30.588835575000],   [31.484936114000,30.588764296000],
+
+  ],
+     "timestamps": [ 320,324,328,332,336,340,344,348,350]
+   },{
+     "vendor": 1,
+     "path": [
+     [31.482974738000,30.589476481000],   [31.483360982000,30.590447275000],
+     [31.483409208000,30.590476211000],
+     [31.483494281000,30.590479659000],   [31.484138670000,30.590248688000],
+     [31.484154198000,30.590224940000],       [31.484157851000,30.590187949000],
+     [31.483834532000,30.589305388000],   
+
+  ],
+     "timestamps": [ 355,360,365,370,375,380,385,390,400]
+   },{
+     "vendor": 1,
+     "path": [
+     [31.482358571000,30.589681730000],   [31.482226252000,30.589357914000],
+     [31.482236956000,30.589312959000],
+     [31.482287620000,30.589282275000],   [31.482589271000,30.589186182000],
+     [31.482609131000,30.589140050000],       [31.482605786000,30.589090992000],
+     [31.482492918000,30.588819366000],   
+
+  ],
+     "timestamps": [ 357,360,365,370,375,380,385,390,400]
+   },
+    ]
+  
+  ,
+                getPath: (d) => {
+                  return d.path;
+                },
+                getTimestamps: (d) => {
+                  return d.timestamps;
+                },
+                getColor: (d) => {
+                  return d.vendor === 0? [238,161,7] : [58,114,166];
+                },
+                getColor: (d) => {
+                  return d.vendor === 1? [58,114,166] :[238,161,7] ;
+                },  
+             
+                opacity: 0.30,
+                widthMinPixels: 3,
+                rounded: true,
+                trailLength: 180,
+                currentTime: (performance.now() % 50000) / 50,
+                shadowEnabled: true
+              })
+            ];
+          }, 50);
+
+          const view2 = new MapView({
+            container: "view2Div",
+            map: new Map({
+              basemap: "hybrid",
+              layers: [layer]
+            }),  constraints: {
+        // Disable zoom snapping to get the best synchronization
+        snapToZoom: false
+      }
+    
+
+          });
+          
+    view2.ui.remove("zoom");
+
+const views = [view, view2];
+let active;
+
+const sync = (source) => {
+  if (!active || !active.viewpoint || active !== source) {
+    return;
+  }
+
+  for (const view of views) {
+    if (view !== active) {
+      view.viewpoint = active.viewpoint;
+    }
+  }
+};
+
+for (const view of views) {
+  view.watch(["interacting", "animation"], () => {
+    active = view;
+    sync(active);
+  });
+
+  view.watch("viewpoint", () => sync(view));
+}
+let fullscreen2 = new Fullscreen({
+      view: view2,
+    });
+    view2.ui.add(fullscreen2, "top-right");
+
+
+        });
+
+
+    // scaleBar
+    // scaleBar
+    // scaleBar
+    // scaleBar
+    // scaleBar
+    // scaleBar
+    // scaleBar
+    // scaleBar
+    // scaleBar
+    // scaleBar
+    // scaleBar
+    // scaleBar
+    // scaleBar
+    let scaleBar = new ScaleBar({
+      view: view,
+    });
+    view.ui.add(scaleBar, "bottom-left");
+
+    /*********
+    * weather
+    * weather
+    * weather
+    * weather
+    * weather
+    * weather
+    * weather
+    * weather
+    * weather
+    * weather
+    * weather
+    * weather
+    **********/
+    const weather = new Expand({
+      content: new Weather({
+        view: view,
+        expanded: true,
+      })
+    });
+    view.ui.add(weather, "top-right",);
+    // directline
+    // directline
+    // directline
+    // directline
+    // directline
+    // directline
+    // directline
+    // directline
+    // directline
+    // directline
+    // directline
+    // directline
+    // directline
+    // directline
+    let directline = new Expand({
+      content: new DirectLineMeasurement3D({
+        view: view,expanded: true
+      })
+    });
+    view.ui.add(directline, "top-right",);
+
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    // daylight
+    const daylight = new Expand({
+      content: new Daylight({
+        view: view,expanded: true,
+        dateOrSeason: "season",
+      }),
+    }); view.ui.add(daylight, "top-right", { index: 1 });
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+    // layerList
+
+    const layerList = new Expand({
+      content: new LayerList({
+        view: view,
+        listItemCreatedFunction: (event) => {
+          const item = event.item;
+          if (item.layer.type != "group") {
+            // don't show legend twice
+            item.panel = {
+              content: "legend",
+              open: false
+            };
+          }
+        }
+      })
+    }); view.ui.add(layerList, "bottom-right", { index: 0 },);
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    // basemapGallery
+    let basemapGallery = new Expand({
+      content: new BasemapGallery({ view: view, title: "base map", group: "right", expanded: true })
+    }); view.ui.add(basemapGallery, "bottom-right", { index: 1 });
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    // Coordinate
+    let Coordinate = new Expand({
+      content: new CoordinateConversion({
+      view: view})
+    });
+    view.ui.add(Coordinate, "bottom-right");
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    // elevationProfile
+    const elevationProfile = new Expand({
+      content: new ElevationProfile({
+        view: view, profiles: [{
+          // displays elevation values from Map.ground
+          type: "ground", //autocasts as new ElevationProfileLineGround()
+          color: "#61d4a4",
+          title: "Ground elevation"
+        }, {
+          // displays elevation values from the input line graphic
+          type: "input", //autocasts as new ElevationProfileLineInput()
+          color: "#f57e42",
+          title: "Line elevation", exclude: [webscene.ground],
+          // displays elevation values from a custom source
+          type: "query",
+          source: new ElevationLayer({
+            url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Elevation/MtBaldy_Elevation/ImageServer"
+          }),
+          color: "#d46189",
+          title: "Custom elevation"
+        }]
+      })
+    });
+    view.ui.add(elevationProfile, "top-right");
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    // fullscreen
+    let fullscreen = new Fullscreen({
+      view: view,
+    });
+    view.ui.add(fullscreen, "top-left");
+
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    // lineOfSight
+    const lineOfSight = new Expand({
+      content: new LineOfSight({
+        view: view
+      })
+    });
+    view.ui.add(lineOfSight, "top-right");
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    // scaleRangeSlider
+    const scaleRangeSlider = new ScaleRangeSlider({
+      view: view,
+      layer: webscene,  // scale range of this layer sets initial minScale and maxScale
+      region: "EG", // preview thumbnail will be of Mexico
+    });    // to update the layer min/max scale based on the slider
+    scaleRangeSlider.watch(["minScale", "maxScale"], function (value, oldValue, name) {
+      webscene[name] = value;
+    });
+    view.ui.add(scaleRangeSlider, "bottom-left");
+
+  // icon properties
+  // icon properties
+  // icon properties
+  // icon properties
+  // icon properties
+  // icon properties
+  // icon properties
+  // icon properties
+  // icon properties
+  // icon properties
+  // icon properties
+  // icon properties
+  // icon properties
+  const verticalOffset = {
+screenLength: 40,
+maxWorldLength: 90,
+minWorldLength: 35
+};
+function getUniqueValueSymbol(name, color) {
+return {
+  type: "point-3d", // autocasts as new PointSymbol3D()
+  symbolLayers: [
+    {
+      type: "icon", // autocasts as new IconSymbol3DLayer()
+      resource: {
+        href: name
+      },
+      size: 20,
+      outline: {
+        color: "white",
+        size: 2
+      }
+    }
+  ],
+
+  verticalOffset: verticalOffset,
+
+  callout: {
+    type: "line", // autocasts as new LineCallout3D()
+    color: "white",
+    size: 2,
+    border: {
+      color: color
+    }
+  }
+};
+}
+const pointsRenderer = {
+type: "unique-value", // autocasts as new UniqueValueRenderer()
+field: "typee",
+uniqueValueInfos: [
+  {
+    value: "library",
+    symbol: getUniqueValueSymbol(
+      "https://cdn.iconscout.com/icon/premium/png-256-thumb/ebook-bookstore-2720882-2259162.png?f=webp&w=256",
+      "#D13470"
+    )
+  },
+  {
+    value: "cafe",
+    symbol: getUniqueValueSymbol(
+      "https://developers.arcgis.com/javascript/latest/sample-code/visualization-point-styles/live/Restaurant.png",
+      "#F97C5A"
+    )
+  },
+  
+  {
+    value: "bank",
+    symbol: getUniqueValueSymbol(
+      "https://cdn.iconscout.com/icon/premium/png-256-thumb/atm-1433963-1211997.png?f=webp&w=256",
+      "#40C2B4"
+    )
+  }
+]
+};
+const pointsLayer = new FeatureLayer({
+url: "https://services8.arcgis.com/ijDm72FoodrzX0Te/arcgis/rest/services/Atm_caf_lib2/FeatureServer",
+title: "services",
+elevationInfo: {
+  // elevation mode that will place points on top of the buildings or other SceneLayer 3D objects
+  mode: "relative-to-scene",
+},
+renderer: pointsRenderer,
+outFields: ["*"],
+// feature reduction is set to selection because our scene contains too many points and they overlap
+featureReduction: {
+  type: "selection"
+},
+labelingInfo: [
+  {
+    labelExpressionInfo: {
+      value: "{Name}"
+    },
+    symbol: {
+      type: "label-3d", // autocasts as new LabelSymbol3D()
+      symbolLayers: [
+        {
+          type: "text", // autocasts as new TextSymbol3DLayer()
+          material: {
+            color: "white"
+          },
+          // we set a halo on the font to make the labels more visible with any kind of background
+          halo: {
+            size: 1,
+            color: [50, 50, 50]
+          },
+          size:8
+        }
+      ]
+    }
+  }
+]
+});
+
+webscene.add(pointsLayer);
+
+document.getElementById("cityStyle")
+.addEventListener("change", (event) => {
+  if (event.target.id === "declutter") {
+    const type = {
+      type: "selection"
+    };
+    pointsLayer.featureReduction = event.target.checked ? type : null;
+  }else if (event.target.id === "relative-to-scene") {
+    const mode = event.target.checked
+      ? "relative-to-scene"
+      : "relative-to-ground";
+    pointsLayer.elevationInfo = {
+      mode: mode
+    };
+  }
+});
+view.ui.add(document.getElementById("cityStyle"), "menu");
+    // shadowCast
+    // shadowCast
+    // shadowCast
+    // shadowCast
+    // shadowCast
+    // shadowCast
+    // shadowCast
+    // shadowCast
+    // shadowCast
+    // shadowCast
+    // shadowCast
+    // shadowCast
+    // shadowCast
+    const shadowCast = new Expand({
+      content: new ShadowCast({
+        view: view, color: [50, 50, 50, 0.7]
+      })
+    });
+    view.ui.add(shadowCast, "top-right");
+    view.ui.add("name1",);
+
+  view.ui.add(view2);
+
+    });
+
+</script>
+<body class="sassy-theme">
+  <div id="viewDiv">
+</div>
+  
+    <div id="view2Div"></div><div id="menu" class="esri-widget"><li id="Wavedirection">Wave Direction</li>
+      <div style="width: 100%;border-bottom-style: dotted;border-top-style: dotted; border-bottom:2px  #8c68db; border-top:  #8c68db;border-right: solid #8c68db;border-left:
+      solid #8c68db;  border-radius: 25%; margin-bottom:2%;margin-top:0%; font-size:medium;padding-left: 0%; padding-top: 19%; padding-bottom: 5%;margin-right: 5%; " id="waveSlider"></div>
+      <h4 style="margin-bottom:0%;margin-top:0%; font-size: medium; padding: 0.2cm;">Wave strength</h4>
+      <input style=" padding: 0.2cm;"  type="radio" name="waveStrengthRadio" value="calm" id="calm" /><label style="cursor: pointer; font-size: small; "
+        for="calm">Calm</label>
+      <input type="radio" name="waveStrengthRadio" value="rippled" id="rippled" /><label style="cursor: pointer; font-size: small; padding-top: 0"
+        for="rippled">Rippled</label><br>
+      <input  type="radio" name="waveStrengthRadio" value="slight" id="slight" /><label
+        style="cursor: pointer; font-size: small;padding-top: 0 " for="slight">Slight</label>
+      <input type="radio" name="waveStrengthRadio" value="moderate" id="moderate" checked /><label
+        style="cursor: pointer; font-size: small;padding-top: 0" for="moderate">Moderate</label>
+      <h4 style=" margin-bottom:1%;font-size: medium; margin-top:3%;padding: 0.2cm;">Dominant
+        color</h4>
+      <button style="margin-left: 0.4cm;" id="navy" class="color-btn"></button>
+      <button id="green" class="color-btn"></button>
+      <button id="turqoise" class="color-btn"></button>
+      <br />
+      <input type="checkbox" id="reflections" checked /><label
+      href="#" data-text="Water Reflections" id="reflection" style="cursor: pointer; margin-bottom:0%;margin-top:3%; font-size: small; font-weight: bold;" for="reflections">Water Reflections</label>
+      <hr style="height: -2cm; border:solid #661ac8;margin-top: 0%;margin-bottom: 0%;padding-top: 0%;margin-bottom: 5%;">
+      <div id="cityStyle" style=" padding-bottom: 0%; top: 5%;
+right: 0%; margin-bottom: 0% ;">
+      <li id="icon3d">Icons Properties</li>
+      <input type="checkbox" id="declutter" name="mode" checked />
+      <label id="declutters" href="#" data-text="Declutter view"  for="declutter">Declutter view</label><br>
+      <input type="checkbox" id="relative-to-scene" name="mode" checked />
+      <label id="rscene"  href="#" data-text="Align to building height"  for="relative-to-scene">Align to building height</label>
+      <div id="menu2" class="esri-widget esri-component">
+        <hr style="height: -2cm; border:solid #661ac8;margin-top: 0%;margin-bottom: 0%;padding-top: 0%;margin-bottom: 5%;">
+
+</div>
+    </div>
+    <li id="heattmapp">HeatMap Slider</li>
+      <a id="slider-container">
+
+        </a>
+
+      </div>
+   
+</body>
+</html>
