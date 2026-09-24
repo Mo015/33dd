@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://conference.sa/#custom-booths -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="مؤتمر+ من الخليجية للملتقيات: إنتاج مؤتمر متكامل لـ٢٠٠ أو ٣٠٠ مشارك، من المحتوى والأنظمة إلى القاعة والتشغيل.">
+  <title>Conference+ | إنتاج مؤتمر متكامل من الخليجية للملتقيات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./Conference Production _ إنتاج المؤتمرات من الفكرة إلى المنصة_files/css2" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1739'/%3E%3Cpath d='M17 39V25l15-9 15 9v14l-15 9-15-9Z' fill='none' stroke='%23ffb000' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23ffb000'/%3E%3C/svg%3E">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
+  <style>
+    :root{--ink:#0b1739;--navy:#101d46;--gold:#ffb000;--mist:#f4f6fb;--white:#fff;--text:#23304f;--muted:#69728a;--line:#dfe4ef;--green:#168467;--shadow:0 24px 70px rgba(11,23,57,.13)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Alexandria",system-ui,sans-serif;color:var(--text);background:var(--white);font-size:16px;line-height:1.75}a{color:inherit;text-decoration:none}button,input{font:inherit}.container{width:min(1180px,calc(100% - 40px));margin:auto}.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.93);backdrop-filter:blur(18px);border-bottom:1px solid rgba(223,228,239,.8)}.nav-inner{height:78px;display:flex;align-items:center;gap:28px}.brand{display:flex;align-items:center;gap:12px;margin-left:auto}.mark{width:42px;height:42px;border-radius:11px;background:var(--ink);display:grid;place-items:center;color:var(--gold);font-weight:800}.brand strong{color:var(--ink);line-height:1.2}.brand small{display:block;color:var(--muted);font-size:.68rem}.links{display:flex;gap:24px;font-size:.86rem;font-weight:600}.nav-cta,.primary{background:var(--gold);color:var(--ink);border:0;border-radius:12px;padding:13px 19px;font-weight:800;cursor:pointer}.hero{background:var(--ink);color:white;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 15%,rgba(255,176,0,.20),transparent 30%),linear-gradient(115deg,transparent 52%,rgba(255,255,255,.04) 52% 53%,transparent 53%)}.hero-grid{min-height:650px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:70px;position:relative;padding:70px 0}.eyebrow{color:var(--gold);font-size:.82rem;font-weight:700;letter-spacing:.04em}.hero h1{font-size:clamp(2.6rem,5vw,5.2rem);line-height:1.12;margin:14px 0 22px;max-width:780px}.hero h1 span{color:var(--gold)}.hero p{font-size:1.08rem;color:#c7cee0;max-width:650px}.hero-actions{display:flex;gap:12px;margin-top:30px}.secondary{border:1px solid rgba(255,255,255,.28);border-radius:12px;padding:12px 20px;color:white;font-weight:600}.promise{margin-top:44px;display:flex;gap:28px;color:#aeb8d2;font-size:.82rem}.promise b{display:block;color:white;font-size:1.18rem}.stage{height:430px;position:relative;display:grid;place-items:center}.stage-card{width:82%;height:78%;border:1px solid rgba(255,255,255,.14);border-radius:160px 160px 24px 24px;background:linear-gradient(180deg,#172757,#0d1738);box-shadow:0 0 80px rgba(255,176,0,.12);position:relative;display:flex;align-items:flex-end;justify-content:center;padding:44px}.stage-card:before{content:"";position:absolute;width:110px;height:110px;border:16px solid var(--gold);border-radius:50%;top:48px;box-shadow:0 0 50px rgba(255,176,0,.35)}.stage-card strong{font-size:1.25rem;text-align:center}.floating{position:absolute;background:white;color:var(--ink);padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);font-size:.75rem;font-weight:700}.f1{top:70px;right:-5px}.f2{left:-10px;bottom:78px}.f3{right:18px;bottom:34px;background:var(--gold)}section{padding:94px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:42px}.section-head h2{font-size:clamp(1.9rem,3.5vw,3rem);line-height:1.3;color:var(--ink);margin:5px 0}.section-head p{max-width:500px;color:var(--muted);margin:0}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}.step{background:white;padding:30px}.step em{font-style:normal;color:var(--gold);font-weight:800;font-size:1.5rem}.step h3{color:var(--ink);margin:12px 0 8px}.step p{font-size:.88rem;color:var(--muted);margin:0}.services{background:var(--mist)}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.service{background:white;border:1px solid transparent;border-radius:18px;padding:25px;display:flex;gap:16px;transition:.2s}.service:hover{transform:translateY(-4px);border-color:#c9d1e1;box-shadow:0 16px 36px rgba(11,23,57,.08)}.icon{width:45px;height:45px;border-radius:12px;background:#fff4d9;color:#af7600;display:grid;place-items:center;flex:0 0 auto;font-weight:800}.service h3{font-size:1rem;color:var(--ink);margin:0 0 5px}.service p{font-size:.78rem;color:var(--muted);margin:0}.quote{background:white}.quote-shell{display:grid;grid-template-columns:1.25fr .75fr;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}.catalog{padding:32px}.cat-head{display:grid;grid-template-columns:1fr 110px 130px;gap:12px;color:var(--muted);font-size:.75rem;padding:0 14px 10px}.item{display:grid;grid-template-columns:1fr 110px 130px;gap:12px;align-items:center;padding:14px;border-top:1px solid var(--line)}.item label{display:flex;align-items:center;gap:12px;font-weight:600;color:var(--ink)}.item input[type=checkbox]{width:19px;height:19px;accent-color:var(--gold)}.item input[type=number]{width:74px;padding:8px;border:1px solid var(--line);border-radius:8px;text-align:center}.price{font-size:.86rem;color:var(--muted)}.summary{background:var(--ink);color:white;padding:38px;display:flex;flex-direction:column}.summary h3{font-size:1.5rem;margin:0}.total-label{color:#9da8c4;margin-top:auto}.total{font-size:2.6rem;font-weight:800;color:var(--gold);line-height:1.2;margin:8px 0 12px}.summary small{color:#aeb8d2}.summary .primary{margin-top:22px;text-align:center}.note{font-size:.72rem;color:var(--muted);margin-top:16px}.why{background:var(--ink);color:white}.why-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:center}.why h2{font-size:2.7rem;line-height:1.3}.checks{display:grid;grid-template-columns:1fr 1fr;gap:14px}.check{border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px;background:rgba(255,255,255,.035)}.check b{color:var(--gold);display:block;margin-bottom:5px}.check span{color:#b8c1d8;font-size:.82rem}.cta-box{background:var(--gold);border-radius:24px;padding:52px;display:flex;align-items:center;justify-content:space-between;gap:30px}.cta-box h2{color:var(--ink);font-size:2.25rem;margin:0}.cta-box p{color:#5c4617;margin:8px 0 0}.cta-box a{background:var(--ink);color:white;padding:15px 24px;border-radius:12px;font-weight:700;white-space:nowrap}footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem}.foot{display:flex;justify-content:space-between;gap:20px}.toast{position:fixed;bottom:22px;left:22px;background:var(--green);color:white;padding:13px 18px;border-radius:10px;opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1;transform:none}@media(max-width:900px){.links{display:none}.hero-grid,.why-grid,.quote-shell{grid-template-columns:1fr}.stage{height:320px}.steps{grid-template-columns:1fr 1fr}.service-grid{grid-template-columns:1fr 1fr}.summary{min-height:360px}.hero-grid{padding-top:48px}.cta-box{align-items:flex-start;flex-direction:column}}@media(max-width:600px){.container{width:min(100% - 28px,1180px)}.nav-inner{height:68px}.nav-cta{display:none}.hero h1{font-size:2.55rem}.hero-actions,.promise{flex-direction:column}.promise{gap:12px}.stage{display:none}.hero-grid{min-height:640px}.steps,.service-grid,.checks{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.cat-head{display:none}.catalog{padding:18px}.item{grid-template-columns:1fr 70px}.price{grid-column:1/-1;padding-right:31px}.cta-box{padding:30px}.cta-box h2{font-size:1.65rem}.foot{flex-direction:column}}
+  .platform-services{background:#fff}.platform-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.platform-grid article{border:1px solid var(--line);border-radius:16px;padding:24px;background:#fff;min-width:0}.platform-grid h3{margin:0 0 9px;color:var(--ink);font-size:1rem}.platform-grid p{margin:0;color:var(--muted);font-size:.87rem;line-height:1.8}.platform-link{display:inline-block;margin-top:26px;background:var(--ink);color:#fff;border-radius:12px;padding:13px 20px;font-weight:700}@media(max-width:900px){.platform-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.platform-grid{grid-template-columns:1fr}}
+  .outreach{background:linear-gradient(135deg,#0b1739 0%,#142b5d 100%);color:#fff}.outreach-shell{display:grid;grid-template-columns:.8fr 1.2fr;gap:54px;align-items:center}.outreach-price{border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:34px;background:rgba(255,255,255,.06)}.outreach-price small{display:block;color:#bdc7dc}.outreach-price strong{display:block;color:var(--gold);font-size:clamp(2.5rem,5vw,4.2rem);line-height:1.1;margin:10px 0}.outreach-price span{color:#d4daea}.outreach-copy h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.25;margin:8px 0 16px}.outreach-copy>p{color:#c6cee0;max-width:720px}.outreach-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}.outreach-list div{border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px;color:#e8ecf5;background:rgba(255,255,255,.035)}.outreach-list b{display:block;color:var(--gold);margin-bottom:4px}.outreach .primary{display:inline-block}@media(max-width:900px){.outreach-shell{grid-template-columns:1fr}.outreach-list{grid-template-columns:1fr}}@media(max-width:600px){.outreach-price{padding:25px}}
+  </style>
+  <style>
+    .supplier-section{background:var(--mist)}.supplier-form{background:white;border:1px solid var(--line);border-radius:22px;padding:36px;box-shadow:var(--shadow)}.supplier-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.supplier-form label{display:flex;flex-direction:column;gap:7px;font-size:.88rem;font-weight:700;color:var(--ink)}.supplier-form input:not([type=checkbox]),.supplier-form textarea{width:100%;padding:12px 14px;border:1px solid #cbd2e0;border-radius:10px;color:var(--ink);background:#fff}.supplier-form input:focus-visible,.supplier-form textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}.supplier-form fieldset{border:0;padding:25px 0 17px;margin:0}.supplier-form legend{font-weight:700;color:var(--ink)}.supplier-options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 20px;margin-top:13px}.supplier-options label,.supplier-form .supplier-consent{flex-direction:row;align-items:center;font-weight:500}.supplier-form input[type=checkbox]{width:18px;height:18px;accent-color:var(--gold)}.supplier-full{margin-top:8px}.supplier-consent{margin-top:22px}.supplier-actions{display:flex;align-items:center;gap:20px;margin-top:20px}.supplier-actions p{margin:0;font-size:.85rem}.supplier-hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}@media(max-width:600px){.supplier-form{padding:22px}.supplier-grid,.supplier-options{grid-template-columns:1fr}.supplier-actions{align-items:flex-start;flex-direction:column}}.nav-inner{gap:20px}.brand{margin-left:0;margin-inline-end:auto}.lang-toggle{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:10px 13px;min-width:48px;font-weight:800;cursor:pointer}.lang-toggle:hover{border-color:var(--gold)}html[dir="ltr"] .hero:before{transform:scaleX(-1)}html[dir="ltr"] .price{direction:ltr;text-align:left}@media(max-width:600px){.lang-toggle{padding:8px 10px}.brand small{display:none}}
+  </style>
+  <style>
+    html,body{max-width:100%;overflow-x:clip}
+    .supplier-hp{left:auto;clip-path:inset(50%);white-space:nowrap}
+    .supplier-grid,.supplier-options{min-width:0}
+    .supplier-grid>*{min-width:0}
+    .menu-toggle{display:none;background:white;border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:1.25rem;line-height:1;padding:9px 12px;cursor:pointer}
+    @media(max-width:900px){
+      .nav-inner{position:relative;gap:10px}
+      .brand{min-width:0;flex:1;margin:0}
+      .brand strong{font-size:clamp(.78rem,3vw,1rem);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+      .mark{flex:none}
+      .menu-toggle{display:block;flex:none}
+      .nav .links{display:none;position:absolute;top:100%;inset-inline:0;flex-direction:column;gap:0;background:white;border:1px solid var(--line);border-radius:0 0 14px 14px;box-shadow:var(--shadow);max-height:calc(100dvh - 78px);overflow-y:auto}
+      .nav .links.is-open{display:flex}
+      .nav .links a{padding:13px 18px;border-bottom:1px solid var(--line)}
+      .nav .links a:last-child{border-bottom:0}
+      .nav .links a:focus-visible,.menu-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+      .hero-grid,.why-grid,.quote-shell{min-width:0}
+      .hero-grid>*,.why-grid>*,.quote-shell>*{min-width:0}
+    }
+    @media(max-width:600px){
+      .nav-inner{gap:8px}
+      .mark{width:36px;height:36px}
+      .brand{gap:7px}
+      .lang-toggle{min-width:43px}
+      .nav .links{max-height:calc(100dvh - 68px)}
+      .item{grid-template-columns:minmax(0,1fr) 70px;gap:6px}
+      .item label{min-width:0;overflow-wrap:anywhere}
+      .item .price{min-width:0;overflow-wrap:anywhere}
+      .total{font-size:clamp(1.8rem,8vw,2.6rem)}
+    }
+  </style>
+  <style>
+    .c200{background:#eef2f9}.c200-shell{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}.c200-intro{background:var(--ink);color:#fff;padding:38px 42px;display:flex;align-items:end;justify-content:space-between;gap:24px}.c200-intro h2{color:#fff;font-size:clamp(2rem,4vw,3.4rem);margin:5px 0 8px}.c200-intro p{margin:0;color:#c7cee0;max-width:670px}.c200-badge{white-space:nowrap;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 16px;color:var(--gold);font-weight:800}.c200-body{padding:38px 42px}.c200-tier-title{color:var(--ink);font-size:1.45rem;margin:0 0 17px}.c200-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}.c200-metrics div{padding:20px;background:#f5f7fb;border-radius:14px}.c200-metrics strong{display:block;color:var(--ink);font-size:1.65rem;line-height:1.25}.c200-metrics span{font-size:.82rem;color:var(--muted)}.c200-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 42px}.c200-grid article{border-top:2px solid var(--gold);padding-top:14px;min-width:0}.c200-grid h3{color:var(--ink);font-size:1.08rem;margin:0 0 7px}.c200-grid ul{padding-inline-start:20px;margin:0;color:#4c5770;font-size:.89rem}.c200-grid li{margin:4px 0}.c300-tier{margin-top:34px;padding:25px;background:#f5f7fb;border:1px solid var(--line);border-radius:16px}.c300-tier h3{color:var(--ink);font-size:1.45rem;margin:0 0 8px}.c300-tier p{margin:0;color:var(--muted)}.c200-foot{border-top:1px solid var(--line);margin-top:32px;padding-top:22px;display:flex;justify-content:space-between;align-items:center;gap:22px}.c200-foot p{margin:0;max-width:580px;color:var(--muted);font-size:.83rem}.c200-actions{display:flex;gap:10px;flex-wrap:wrap}.c200-foot .primary{display:inline-block;white-space:nowrap}.c200-actions .outline{display:inline-block;border:1px solid var(--ink);border-radius:12px;padding:12px 18px;font-weight:700;color:var(--ink);white-space:nowrap}@media(max-width:900px){.c200-metrics{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.c200-intro,.c200-body{padding:25px 20px}.c200-intro,.c200-foot{align-items:flex-start;flex-direction:column}.c200-grid{grid-template-columns:1fr}.c200-metrics strong{font-size:1.35rem}.c200-metrics div{padding:14px}.c200-actions{width:100%}.c200-actions a{width:100%;text-align:center}}
+  </style>
+  <style>
+    .contact-section{background:var(--mist)}.contact-layout{display:grid;grid-template-columns:.7fr 1.3fr;gap:28px;align-items:start}.contact-info{background:var(--ink);color:#fff;border-radius:22px;padding:36px;box-shadow:var(--shadow)}.contact-info h3{font-size:1.55rem;margin:0 0 12px}.contact-info p{color:#c7cee0;margin:0 0 28px}.contact-method{display:block;border-top:1px solid rgba(255,255,255,.14);padding:18px 0}.contact-method span{display:block;color:var(--gold);font-size:.78rem;font-weight:700}.contact-method strong{direction:ltr;display:inline-block;font-size:1rem}.contact-form textarea{resize:vertical}.contact-form .primary:disabled{opacity:.6;cursor:wait}@media(max-width:900px){.contact-layout{grid-template-columns:1fr}}@media(max-width:600px){.contact-info{padding:26px}}
+    .whatsapp-contact{position:fixed;right:24px;bottom:24px;z-index:40;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 28px rgba(11,23,57,.25);transition:transform .2s,box-shadow .2s}
+    .whatsapp-contact:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(11,23,57,.3)}
+    .whatsapp-contact:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+    .whatsapp-contact svg{width:34px;height:34px}
+    @media(max-width:600px){.whatsapp-contact{right:16px;bottom:16px;width:54px;height:54px}.whatsapp-contact svg{width:30px;height:30px}}
+  </style>
+  <style>
+    .hero .hero-subline{color:#fff;font-size:.68em;line-height:1.35}.hero h1{max-width:900px}.hero-grid{grid-template-columns:1.18fr .82fr}.c200{padding-top:72px}
+    .company-profile{background:var(--mist)}.company-profile-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:64px;align-items:center}.company-profile h2{font-size:clamp(2rem,3.6vw,3.1rem);line-height:1.3;color:var(--ink);margin:8px 0 20px}.company-profile p{max-width:760px;margin:0 0 15px;color:#4c5770}.company-profile-card{background:var(--ink);color:white;border-radius:22px;padding:35px;box-shadow:var(--shadow)}.company-profile-card strong{display:block;color:var(--gold);font-size:clamp(3rem,6vw,5rem);line-height:1.15}.company-profile-card span{display:block;font-weight:700;font-size:1.1rem;margin-top:12px}.company-profile-card small{display:block;color:#c7cee0;margin-top:8px;font-size:.85rem}@media(max-width:800px){.company-profile-grid{grid-template-columns:1fr;gap:24px}.company-profile-card{padding:25px}}
+  </style>
+<style>.brand-logo{width:128px;height:auto;max-height:53px;object-fit:contain}.brand strong{white-space:nowrap}.foot-identity{display:flex;align-items:center;gap:18px}.foot-identity img{width:116px;height:auto}.foot{align-items:center}footer{background:var(--ink);color:#c7cee0;border-top:0}@media(max-width:600px){.brand-logo{width:95px}.brand strong{font-size:.82rem}.foot,.foot-identity{flex-wrap:wrap}.foot-identity img{width:100px}}.popup-3d-container{width:100%;height:400px;border-radius:14px;background:#eef0f5;overflow:hidden;position:relative}.popup-enlarge-3d-container{width:100%;height:600px;border-radius:14px;background:#eef0f5;overflow:hidden;position:relative}</style>
+<style>
+  .hero-visual{margin:0;position:relative;width:125%;margin-inline-start:-12%;filter:drop-shadow(0 28px 55px rgba(0,0,0,.26))}
+  .hero-visual img{display:block;width:100%;height:auto;border-radius:26px;mask-image:linear-gradient(to bottom,black 88%,transparent 100%)}
+  @media(max-width:900px){.hero-visual{width:100%;margin:4px 0 0}.hero-visual img{max-height:480px;object-fit:cover;object-position:center;border-radius:20px}}
+  @media(max-width:600px){
+    .hero-grid{display:flex;flex-direction:column;align-items:stretch;gap:0;padding-top:42px;padding-bottom:38px}
+    .hero-grid>div{display:contents}
+    .hero-grid .eyebrow{order:1}
+    .hero-grid h1{order:2;margin:12px 0 18px}
+    .hero-visual{order:3;width:calc(100% + 28px);margin:0 -14px 24px;filter:drop-shadow(0 16px 28px rgba(0,0,0,.22))}
+    .hero-visual img{width:100%;height:clamp(230px,68vw,340px);max-height:none;object-fit:cover;object-position:center;border-radius:16px;mask-image:none}
+    .hero-grid p{order:4;margin-top:0}
+    .hero-actions{order:5}
+    .promise{order:6}
+  }
+</style>
+  <style>
+    @media(min-width:901px){.nav-inner{gap:10px}.nav .links{gap:10px;font-size:.74rem}.nav .links a,.nav-cta{white-space:nowrap}.brand{flex:none}}
+    .booth-product{background:#f4f6fb}.booth-layout{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:28px;align-items:start}.booth-showcase{position:sticky;top:96px;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}.booth-image{position:relative;background:#111d3e}.booth-render{width:100%;aspect-ratio:1/1;background-image:url(/booth-design-01.png);background-size:300% auto;background-position:38% 18%;background-repeat:no-repeat}.booth-render[data-size="9"]{background-size:390% auto;background-position:0% 18%}.booth-render[data-size="36"]{background-position:100% 18%}.booth-all-sizes{display:block;margin:0 22px;color:#765200;font-size:.8rem;font-weight:700;text-decoration:underline}.booth-brand{position:absolute;right:5%;bottom:6%;max-width:60%;display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;color:#fff;background:#132d52;border-bottom:4px solid #d8a447;font-size:.72rem;font-weight:800;overflow:hidden}.booth-brand img{width:34px;height:34px;object-fit:contain;background:white;border-radius:3px}.booth-brand span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.booth-design-title{padding:18px 22px 7px;display:grid;gap:5px}.booth-design-title strong{color:var(--ink)}.booth-design-title span,.booth-swatches small{font-size:.78rem;color:var(--muted)}.booth-swatches{display:flex;align-items:center;gap:8px;padding:7px 22px 22px}.booth-swatches>span{width:26px;height:26px;border-radius:50%;border:1px solid #dfe4ef}.booth-form{background:#fff;border:1px solid var(--line);padding:clamp(18px,3vw,30px);border-radius:20px;min-width:0}.booth-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:20px}.booth-form label{display:flex;flex-direction:column;gap:7px;color:var(--ink);font-size:.88rem;font-weight:700;min-width:0}.booth-form input:not([type=checkbox]),.booth-form select{height:46px;width:100%;min-width:0;border:1px solid #cbd2e0;border-radius:9px;background:#fff;padding:9px 11px;color:var(--ink)}.booth-form input[type=color]{padding:3px}.booth-form input[type=file]{font-size:.76rem}.booth-form .booth-wide{grid-column:1/-1}.booth-form fieldset{border:0;border-top:1px solid var(--line);padding:18px 0 16px;margin:0 0 12px}.booth-form legend{font-weight:800;color:var(--ink);padding-inline:10px}.booth-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.booth-options label{flex-direction:row;align-items:center;padding:11px;border:1px solid var(--line);border-radius:10px;font-weight:500;cursor:pointer}.booth-options input{accent-color:var(--gold);width:18px;height:18px;flex:none}.booth-options span{flex:1}.booth-options b{font-size:.75rem;white-space:nowrap;color:#695016}.booth-total{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#0b1739;color:white;border-radius:14px;padding:19px;margin-top:20px}.booth-total div{display:grid;align-content:start}.booth-total small{font-size:.75rem;color:#c6cee0}.booth-total strong{font-size:1.55rem;color:var(--gold);line-height:1.45}.booth-total span{font-size:.75rem;color:#d3d9e8}.booth-fine{font-size:.8rem;color:#56627a}.booth-form button{width:100%}.booth-form button:disabled{opacity:.55}.booth-form #boothStatus{margin:8px 0 0;color:#17674c;font-size:.88rem}@media(max-width:900px){.booth-layout{grid-template-columns:1fr}.booth-showcase{position:static}.booth-render{max-height:420px}}@media(max-width:600px){.booth-form-grid,.booth-options,.booth-total{grid-template-columns:1fr}.booth-product{padding:64px 0}.booth-options label{min-height:48px}.booth-total{gap:14px}.booth-total div+div{border-top:1px solid #405072;padding-top:12px}}
+  </style>
+  <section class="popup-product" id="popups"><div class="container">
+      <div class="section-head"><div><div class="eyebrow" data-en="Conference+ display product">منتج العرض من مؤتمر+</div><h2 data-en="Portable pop-up displays">بوب أب للمعارض</h2></div><p data-en="Choose a flat or curved backdrop, upload your artwork and add a matching display table if needed.">اختر خلفية مستقيمة أو منحنية، وارفع التصميم، وأضف طاولة عرض متناسقة عند الحاجة.</p></div>
+      <div class="popup-layout"><div class="popup-visual"><div id="popupScene3D" class="popup-3d-container" role="img" aria-label="معاينة بوب أب ثلاثية الأبعاد"></div><figure id="popupScene" class="flat" hidden="" role="img" aria-label="معاينة بوب أب مستقيم"><img id="popupArtworkPreview" class="popup-art-overlay" alt="" hidden=""><img id="popupCounterOverlay" class="popup-counter-overlay" alt="" hidden=""></figure><button type="button" class="popup-enlarge-button" id="popupEnlarge" data-en="Preview my pop-up design">معاينة تصميم البوب أب</button><p id="popupMockupStatus" class="popup-mockup-status" role="status" aria-live="polite"></p><figcaption data-en="Illustrative preview only. Your uploaded image is fitted to the display area; final print layout, resolution and trim are checked before production. For PDF print files, upload an image copy to see the mockup; we review the PDF before production.">معاينة تقريبية؛ تظهر الصورة ضمن مساحة الطباعة، ويُراجع المقاس والدقة والقص قبل الإنتاج. إذا كان ملف الطباعة PDF فارفع نسخة صورة للمعاينة؛ ونراجع PDF قبل الإنتاج.</figcaption><div class="popup-preview-meta"><span id="popupShapeLabel" data-en="Flat pop-up">بوب أب مستقيم</span><span id="popupSizeLabel">3.44 × 2.32 m</span></div><div id="popupTablePreview" class="popup-table-preview" hidden=""><strong data-en="Matching display table">طاولة عرض متناسقة</strong><img id="popupTableImage" alt="Table artwork preview" hidden=""><small id="popupTableText" data-en="Table artwork can be supplied separately.">يمكن رفع تصميم الطاولة بشكل منفصل.</small></div></div>
+      <form class="popup-form" id="popupForm"><div class="popup-grid"><label><span data-en="Backdrop size *">مقاس الخلفية *</span><select name="size" required=""><option value="230" data-en="2.30 × 2.30 m · SAR 3,500">٢٫٣٠ × ٢٫٣٠ م · ٣٬٥٠٠ ريال</option><option value="300" data-en="3.00 × 2.30 m · SAR 4,800">٣٫٠٠ × ٢٫٣٠ م · ٤٬٨٠٠ ريال</option><option value="344" selected="" data-en="3.44 × 2.32 m · SAR 5,800">٣٫٤٤ × ٢٫٣٢ م · ٥٬٨٠٠ ريال</option></select></label><label><span data-en="Shape *">الشكل *</span><select name="shape" required=""><option value="flat" data-en="Flat · included">مستقيم · ضمن السعر</option><option value="curved" data-en="Curved · + SAR 700">منحني · + ٧٠٠ ريال</option></select></label><label class="wide"><span data-en="Upload backdrop design * (PDF, PNG, JPG or WebP; max 8 MB)">ارفع تصميم الخلفية * (PDF أو PNG أو JPG أو WebP؛ حتى ٨ ميغابايت)</span><input name="artwork" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp" required=""></label><div id="popupImageCopy" class="popup-upload-copy" hidden=""><label><span data-en="PNG or JPG copy for the PDF mockup (max 8 MB)">نسخة PNG أو JPG لمعاينة ملف PDF (حتى ٨ ميغابايت)</span><input name="previewImage" type="file" accept=".png,.jpg,.jpeg,.webp"></label></div></div>
+      <label class="popup-table-option"><input type="checkbox" name="withTable" id="popupWithTable"><span data-en="Add matching display table">أضف طاولة عرض متناسقة</span><b>+1,800 SAR</b></label><div id="popupTableUpload" hidden=""><label><span data-en="Table design (optional; PDF, PNG, JPG or WebP; max 8 MB)">تصميم الطاولة (اختياري؛ PDF أو PNG أو JPG أو WebP؛ حتى ٨ ميغابايت)</span><input name="tableArtwork" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp"></label></div>
+      <p class="popup-note" data-en="The table includes its printed front panel. If you do not upload table artwork, we will coordinate the matching design with you before production.">يشمل سعر الطاولة الواجهة المطبوعة. إذا لم ترفع تصميمها، سننسق معك التصميم المتناسق قبل الإنتاج.</p>
+      <div class="popup-grid"><label><span data-en="Company *">الشركة *</span><input name="company" required="" maxlength="120" autocomplete="organization"></label><label><span data-en="Contact name *">اسم المسؤول *</span><input name="name" required="" maxlength="120" autocomplete="name"></label><label><span data-en="Email *">البريد الإلكتروني *</span><input name="email" type="email" required="" maxlength="254" autocomplete="email" dir="ltr"></label><label><span data-en="Phone *">رقم الهاتف *</span><input name="phone" type="tel" required="" maxlength="40" autocomplete="tel" dir="ltr"></label><label><span data-en="Event name *">اسم الفعالية *</span><input name="eventTitle" required="" maxlength="160"></label><label><span data-en="Event city *">مدينة الفعالية *</span><input name="eventCity" required="" maxlength="120"></label><label><span data-en="Event date">تاريخ الفعالية</span><input name="eventDate" type="date"></label></div><div class="supplier-hp" aria-hidden="true"><input name="fax" tabindex="-1" autocomplete="off"></div>
+      <div class="popup-price"><div><span data-en="Product price before VAT">السعر قبل الضريبة</span><strong id="popupNet">٥٬٨٠٠ ر.س</strong></div><div><span data-en="Total payable including 15% VAT">المبلغ المستحق شامل ضريبة ١٥٪</span><strong id="popupGross">٦٬٦٧٠ ر.س</strong></div></div><p class="popup-note" data-en="Prices include backdrop printing and the selected table when added. Delivery, on-site installation and artwork redesign are quoted separately after confirming event details. We check print files before production.">يشمل السعر طباعة الخلفية والطاولة عند اختيارها. يُسعّر التوصيل والتركيب بالموقع وإعادة تصميم الملفات بشكل منفصل بعد تأكيد تفاصيل الفعالية. تُراجع ملفات الطباعة قبل الإنتاج.</p>
+      <button type="submit" class="primary" data-en="Place order and pay">اطلب الآن وادفع</button><p id="popupStatus" role="status" aria-live="polite"></p></form></div></div></section>
+    <dialog id="popupEnlargeDialog" class="popup-enlarge-dialog" aria-labelledby="popupEnlargeTitle"><header><h2 id="popupEnlargeTitle" data-en="Close-up pop-up preview">معاينة البوب أب عن قرب</h2><button type="button" id="popupEnlargeClose" aria-label="Close preview">×</button></header><div id="popupEnlargeScene3D" class="popup-enlarge-3d-container" role="img" aria-label="معاينة بوب أب ثلاثية الأبعاد عن قرب"></div><figure id="popupEnlargeScene" class="flat" hidden="" role="img" aria-label="Selected pop-up shape with uploaded artwork"><img id="popupEnlargeArtwork" class="popup-art-overlay" alt="" hidden=""><img id="popupEnlargeCounter" class="popup-counter-overlay" alt="" hidden=""></figure><div class="popup-dialog-summary"><strong id="popupDialogSize"></strong><span id="popupDialogTable"></span></div><p data-en="Concept preview. Your image is fitted to the selected backdrop and optional table; we check print quality and the exact size before production.">معاينة تصورية؛ تظهر صورتك على الخلفية والطاولة الاختيارية، ونراجع جودة الطباعة والمقاس النهائي قبل الإنتاج.</p></dialog>
+    <section class="outreach" id="saudi-outreach"><div class="container outreach-shell">
+    </div></section>
+
+  <script>
+    const services=[
+      {id:'strategy',name:'استراتيجية وهوية المؤتمر',unit:'مشروع',price:15000},
+      {id:'website',name:'موقع المؤتمر والنطاق',unit:'موقع',price:12000},
+      {id:'speakers',name:'إدارة واستقطاب المتحدثين',unit:'متحدث',price:750},
+      {id:'abstracts',name:'نظام الملخصات والتحكيم',unit:'فعالية',price:9000},
+      {id:'registration',name:'منصة التسجيل وإدارة الحضور',unit:'فعالية',price:10000},
+      {id:'sponsors',name:'إدارة الرعايات والعارضين',unit:'راعٍ',price:1800},
+      {id:'venue',name:'اختيار وتعاقد القاعة',unit:'موقع',price:7500},
+      {id:'onsite',name:'الإدارة الميدانية والتسجيل',unit:'يوم',price:18000},
+      {id:'booths',name:'إدارة وتجهيز الأجنحة',unit:'جناح',price:3500},
+      {id:'av',name:'إدارة AV وشاشات LED',unit:'يوم',price:12000},
+      {id:'media',name:'التصوير والبث والنشر',unit:'يوم',price:9500},
+      {id:'report',name:'التقرير الختامي والتحليلات',unit:'تقرير',price:6000},
+      {id:'saudi_outreach',name:'باقة استقطاب المشاركين من السعودية',unit:'فعالية',price:30000}
+    ];
+    const state={}; const items=document.getElementById('items');
+    function money(n){return new Intl.NumberFormat('ar-SA').format(n)+' ر.س'}
+    services.forEach((s,i)=>{state[s.id]={on:i<2,qty:1};const row=document.createElement('div');row.className='item';row.innerHTML=`<label><input type="checkbox" data-id="${s.id}" ${i<2?'checked':''}><span>${s.name}</span></label><input aria-label="كمية ${s.name}" type="number" min="1" max="999" value="1" data-qty="${s.id}"><span class="price">${money(s.price)} / ${s.unit}</span>`;items.appendChild(row)});
+    function render(showToast=false){let total=0,count=0;services.forEach(s=>{const x=state[s.id];if(x.on){total+=s.price*x.qty;count++}});document.getElementById('total').textContent=money(total);document.getElementById('selectedCount').textContent=count?`${count} خدمات مختارة`:'لم يتم اختيار خدمات';const selected=services.filter(s=>state[s.id].on).map(s=>`${s.name} (${state[s.id].qty})`).join('، ');const subject=encodeURIComponent('طلب عرض سعر لإنتاج مؤتمر');const body=encodeURIComponent(`مرحباً،\nأرغب في عرض سعر للخدمات التالية:\n${selected||'يرجى التواصل لمناقشة المشروع'}\n\nالتقدير الأولي: ${money(total)}`);document.getElementById('emailCta').href=`mailto:dr@gulf-forums.com?subject=${subject}&body=${body}`;const outreach=!!state.saudi_outreach?.on,quoteButton=document.getElementById('quoteSubmitBtn'),payButton=document.getElementById('payOutreachBtn'),paymentNote=document.getElementById('paymentNote');if(quoteButton&&payButton&&paymentNote){quoteButton.hidden=outreach;payButton.hidden=!outreach;paymentNote.hidden=!outreach}if(showToast){const t=document.getElementById('toast');t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),1300)}return {total,count,selected}}
+    items.addEventListener('change',e=>{const id=e.target.dataset.id||e.target.dataset.qty;if(!id)return;if(e.target.type==='checkbox')state[id].on=e.target.checked;else state[id].qty=Math.max(1,Number(e.target.value)||1);render(true)});render();
+    document.querySelectorAll('[data-outreach-package]').forEach(link=>link.addEventListener('click',()=>{state.saudi_outreach.on=true;state.saudi_outreach.qty=1;document.querySelector('[data-id="saudi_outreach"]').checked=true;document.querySelector('[data-qty="saudi_outreach"]').value=1;render(true);document.getElementById('items').dispatchEvent(new Event('change',{bubbles:true}))}));
+    if(document.modelContext?.registerTool){const lifecycle=new AbortController();Promise.resolve(document.modelContext.registerTool({name:'configure_conference_services',title:'تكوين خدمات المؤتمر',description:'اختيار خدمات إنتاج المؤتمر وكمياتها وتحديث الميزانية الظاهرة.',inputSchema:{type:'object',properties:{selections:{type:'array',items:{type:'object',properties:{service_id:{type:'string',enum:services.map(s=>s.id)},quantity:{type:'integer',minimum:1,maximum:999}},required:['service_id','quantity'],additionalProperties:false}}},required:['selections'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute(input){if(!input||!Array.isArray(input.selections))throw new Error('selections is required');services.forEach(s=>{state[s.id].on=false});for(const sel of input.selections){if(!services.some(s=>s.id===sel.service_id)||!Number.isInteger(sel.quantity)||sel.quantity<1)throw new Error('Invalid service selection');state[sel.service_id]={on:true,qty:sel.quantity};document.querySelector(`[data-id="${sel.service_id}"]`).checked=true;document.querySelector(`[data-qty="${sel.service_id}"]`).value=sel.quantity}const result=render();return {selected_services:result.count,estimated_total_sar:result.total}},},{signal:lifecycle.signal})).catch(()=>{})}
+  </script>
+  <script>
+    (()=>{
+      let cpLang=localStorage.getItem('cp-language')||'ar';
+      const cpServices={
+        strategy:['استراتيجية وهوية المؤتمر','Conference strategy and identity','مشروع','project'],website:['موقع المؤتمر والنطاق','Conference website and domain','موقع','site'],speakers:['إدارة واستقطاب المتحدثين','Speaker acquisition and management','متحدث','speaker'],abstracts:['نظام الملخصات والتحكيم','Abstract submission and review system','فعالية','event'],registration:['منصة التسجيل وإدارة الحضور','Registration and attendee platform','فعالية','event'],sponsors:['إدارة الرعايات والعارضين','Sponsor and exhibitor management','راعٍ','sponsor'],venue:['اختيار وتعاقد القاعة','Venue sourcing and contracting','موقع','venue'],onsite:['الإدارة الميدانية والتسجيل','On-site management and registration','يوم','day'],booths:['إدارة وتجهيز الأجنحة','Booth management and production','جناح','booth'],av:['إدارة AV وشاشات LED','AV and LED screen management','يوم','day'],media:['التصوير والبث والنشر','Photography, streaming and publishing','يوم','day'],report:['التقرير الختامي والتحليلات','Post-event report and analytics','تقرير','report'],saudi_outreach:['باقة استقطاب المشاركين من السعودية','Saudi delegate outreach package','فعالية','event']
+      };
+      const cpEnglish={
+        'مكونات الباقة':'What is included','داخل مؤتمر+':'Inside Conference+','كل ما يلزم لإنتاج مؤتمرك':'Everything needed to produce your conference','هذه المسارات تُدار ضمن باقة مؤتمر+ المتكاملة، من المحتوى والأنظمة إلى القاعة والتشغيل يوم الفعالية.':'These workstreams are managed within Conference+, from content and systems to the venue and event-day operations.','تخطيط نطاق الإنتاج':'Plan your production','حدّد متطلبات مؤتمر+':'Define your Conference+ scope','اختر مسارات العمل والكميات لتقدير خدمات الإدارة والإنتاج. تُسعّر باقة المؤتمر المتكاملة في عرض مخصص يشمل احتياجات القاعة والضيافة والموردين.':'Select workstreams and quantities to estimate management and production services. The complete conference package is priced in a tailored proposal including venue, hospitality and supplier requirements.','تقدير الخدمة':'Service estimate','تقدير مسارات الإنتاج':'Production workstream estimate','تقديرات مسارات الإدارة والإنتاج بالريال السعودي؛ لا تمثل سعر باقة مؤتمر+ الكاملة ولا تشمل الضريبة أو تكاليف الموردين مثل القاعة والضيافة والطباعة والمعدات.':'Management and production estimates are in SAR; they are not the full Conference+ package price and exclude VAT and supplier costs such as venue, hospitality, printing and equipment.','نحوّل فكرة مؤتمر+ إلى خطة إنتاج متكاملة بجدول ومسؤوليات واضحة ونقطة اتصال واحدة.':'We turn your Conference+ idea into a complete production plan with a clear schedule, responsibilities and one point of contact.','نحدد متطلبات الباقة بحسب عدد المشاركين ومحتوى المؤتمر.':'We define the package requirements around your audience size and conference content.','© 2026 Conference+ — من الخليجية للملتقيات':'© 2026 Conference+ — by Gulf Forums & Exhibitions',
+
+        'طلب خدمات المؤتمر':'Conference services request','أرسل طلب عرض السعر':'Send a quotation request','أدخل تفاصيل مشروعك. سنحتفظ بنطاق الخدمات المختارة ونتواصل معك لإعداد العرض النهائي.':'Tell us about your project. We will save your selected services and contact you with a final quotation.','الاسم *':'Name *','الشركة أو الجهة':'Company or organization','البريد الإلكتروني *':'Email *','عنوان المؤتمر أو الفعالية *':'Conference or event title *','مدينة الفعالية':'Event city','تاريخ الفعالية المتوقع':'Expected event date','تفاصيل الفعالية':'Event details','إرسال الطلب':'Send request','سجّل كمورد':'Register as a supplier','انضم إلى شبكة الموردين':'Join our supplier network','سجّل كمورد معنا':'Register as a supplier','عرّفنا بشركتك وخدماتك في قطاع المؤتمرات والفعاليات. سنراجع بياناتك ونتواصل معك عند وجود فرصة مناسبة.':'Tell us about your company and conference services. We will review your details and contact you when there is a suitable opportunity.','اسم الشركة *':'Company name *','اسم مسؤول التواصل *':'Contact person *','البريد الإلكتروني للعمل *':'Business email *','رقم الهاتف *':'Phone number *','المدينة والبلد *':'City and country *','الموقع الإلكتروني أو رابط الملف التعريفي':'Website or company profile URL','مجالات الخدمات * (اختر مجالاً واحداً على الأقل)':'Service categories * (choose at least one)','الصوت والصورة والشاشات':'AV and screens','القاعات والضيافة':'Venues and catering','المعارض والأجنحة':'Exhibitions and booths','التصوير والإنتاج':'Media and production','تقنية الفعاليات':'Event technology','الفرق الميدانية واللوجستيات':'Staffing and logistics','التصميم والطباعة':'Design and printing','خدمات أخرى':'Other services','نبذة عن الخدمات والخبرة *':'Services and experience *','أوافق على استخدام بياناتي للتواصل معي بشأن فرص التعاون.':'I agree to be contacted about supplier opportunities.','إرسال طلب التسجيل':'Submit registration','كيف نعمل':'How it works','الخدمات':'Services','مؤتمر+':'Conference+','عن الخليجية':'About Gulf Forums','حاسبة الميزانية':'Budget calculator','ابدأ مشروعك':'Start your project','احسب التكلفة':'Estimate cost','منصة إنتاج المؤتمرات للشركات والجهات الحكومية':'Conference production platform for businesses and government entities','أعطنا':'Tell us','عنوان المؤتمر.':'the conference title.','ونتولى كل ما بعده.':'We take care of everything after that.','نحوّل الفكرة إلى مؤتمر متكامل: الهوية والموقع، المتحدثون والملخصات، التسجيل والدفع، الرعايات، القاعة والمعرض، الإنتاج المرئي، والإدارة الميدانية.':'We turn your idea into a complete conference: identity and website, speakers and abstracts, registration and payments, sponsorships, venue and exhibition, media production and on-site management.','كوّن باقتك الآن':'Build your package','استكشف الخدمات':'Explore services','حل واحد':'One solution','بدلاً من عشرات الموردين':'Instead of dozens of suppliers','ميزانية واضحة':'Clear budget','خدمات مسعّرة وقابلة للقياس':'Priced, measurable services','إدارة كاملة':'Complete management','قبل وأثناء وبعد الحدث':'Before, during and after the event','من الفكرة':'From an idea','إلى تجربة تستحق الحضور':'to an experience worth attending','إدارة المتحدثين ✓':'Speaker management ✓','التسجيل والدفع ✓':'Registration & payment ✓','إنتاج الحدث LIVE':'LIVE event production','رحلة واضحة':'A clear journey','أربع خطوات إلى يوم الافتتاح':'Four steps to opening day','نحوّل فكرة مؤتمر+ إلى خطة إنتاج متكاملة بجدول ومسؤوليات واضحة ونقطة اتصال واحدة.':'We start with your objective, audience and budget, then build one integrated delivery plan with a single point of contact.','عرّف الفكرة':'Define the idea','العنوان، القطاع، المدينة، التاريخ المتوقع وعدد الحضور.':'Title, sector, city, expected date and audience size.','حدّد المتطلبات':'Define requirements','نحدد متطلبات الباقة بحسب عدد المشاركين ومحتوى المؤتمر.':'Build your scope from our flexible service catalogue.','اعتمد الخطة':'Approve the plan','جدول زمني، ميزانية ومسؤوليات واضحة.':'A clear timeline, budget and responsibilities.','ننتج المؤتمر':'We produce the conference','فريق واحد يدير كل التفاصيل حتى التقرير الختامي.':'One team manages every detail through the final report.','كتالوج متكامل':'Complete catalogue','كل خدمة تحتاجها، في مكان واحد':'Every service you need, in one place','يمكن طلب مؤتمر متكامل أو اختيار خدمات محددة حسب فريقك وميزانيتك.':'Commission a complete conference or select individual services to suit your team and budget.','الاستراتيجية وهوية المؤتمر':'Conference strategy and identity','المفهوم، الاسم، الهوية، خطة العمل والميزانية.':'Concept, name, identity, delivery plan and budget.','الموقع والنطاق والبريد':'Website, domain and email','تجربة رقمية متكاملة بالعربية والإنجليزية.':'A complete bilingual digital experience.','استقطاب المتحدثين':'Speaker acquisition','البحث، الدعوات، المتابعة وجدولة الجلسات.':'Research, invitations, follow-up and session scheduling.','نظام الملخصات':'Abstract management','الاستلام والتحكيم والقبول ورفع العروض.':'Submission, review, acceptance and presentation upload.','التسجيل والدفع':'Registration and payment','تذاكر، رموز خصم، فواتير ومدفوعات إلكترونية.':'Tickets, promo codes, invoices and online payments.','الرعايات والمعرض':'Sponsorship and exhibition','الباقات، المخطط، العارضون وتجهيز الأجنحة.':'Packages, floor plan, exhibitors and booth production.','القاعة والضيافة':'Venue and hospitality','التفاوض، التعاقد، التموين وإدارة الموردين.':'Negotiation, contracting, catering and supplier management.','الصوت والصورة والشاشات':'AV and LED screens','AV، LED، بث مباشر وإدارة المحتوى المرئي.':'AV, LED, livestreaming and visual content management.','الإدارة الميدانية':'On-site management','الاستقبال، الطباعة، فريق التشغيل والبروتوكول.':'Reception, printing, operations team and protocol.','تقدير أولي سريع':'Quick initial estimate','كوّن نطاق عمل مؤتمرك':'Build your conference scope','اختر الخدمات والكمية للحصول على تقدير أولي. العرض النهائي يعتمد على المدينة والحجم والمتطلبات الفنية.':'Select services and quantities for an initial estimate. The final quotation depends on location, scale and technical requirements.','الخدمة':'Service','الكمية':'Quantity','السعر الابتدائي':'Starting price','تقديرات مسارات الإدارة والإنتاج بالريال السعودي؛ لا تمثل سعر باقة مؤتمر+ الكاملة ولا تشمل الضريبة أو تكاليف الموردين مثل القاعة والضيافة والطباعة والمعدات.':'Prices are in Saudi riyals and exclude VAT and direct supplier costs such as venue rental, printing and equipment.','ملخص النطاق':'Scope summary','ميزانية الخدمات التقديرية':'Estimated service budget','لم يتم اختيار خدمات':'No services selected','الإجمالي قبل الضريبة':'Total before VAT','سنراجع المتطلبات ونرسل عرضاً تفصيلياً وجدولاً تنفيذياً.':'We will review your requirements and send a detailed quotation and delivery schedule.','اطلب عرض السعر':'Request a quotation','لماذا نحن؟':'Why us?','خبرة المؤتمرات، بعقلية منصة إنتاج.':'Conference expertise, delivered as one production platform.','نربط التقنية والمحتوى والتشغيل في خطة واحدة، فتقل الفجوات ويتحسن التحكم بالوقت والجودة والميزانية.':'We connect technology, content and operations in one plan—reducing gaps and improving control over time, quality and budget.','نقطة اتصال واحدة':'One point of contact','إدارة مركزية لجميع مسارات العمل والموردين.':'Central management for every workstream and supplier.','نطاق قابل للقياس':'Measurable scope','كل خدمة لها مخرج واضح وكمية وتكلفة.':'Every service has a clear output, quantity and cost.','خبرة B2B':'B2B expertise','محتوى تنفيذي وتجربة تليق بصنّاع القرار.':'Executive content and an experience designed for decision-makers.','تقارير ما بعد الحدث':'Post-event reporting','الحضور، التفاعل، المحتوى والتوصيات.':'Attendance, engagement, content and recommendations.','ما عنوان مؤتمرك القادم؟':'What is the title of your next conference?','أرسل لنا العنوان والمدينة والتاريخ المتوقع. نعود إليك بخارطة طريق أولية.':'Send us the title, city and expected date. We will return with an initial roadmap.','ابدأ المحادثة ←':'Start the conversation →','© 2026 Conference+ — من الخليجية للملتقيات':'© 2026 Conference Production — A Gulf Forums service','الرياض · المملكة العربية السعودية · dr@gulf-forums.com':'Riyadh · Saudi Arabia · dr@gulf-forums.com','تم تحديث ميزانية المشروع':'Project budget updated'
+      };
+      const platformNodes=[...document.querySelectorAll('[data-en]')].map(el=>({el,ar:el.textContent,en:el.dataset.en}));const cpNodes=[];const cpWalker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);while(cpWalker.nextNode()){const n=cpWalker.currentNode,t=n.textContent.trim();if(t&&cpEnglish[t])cpNodes.push({node:n,ar:t,en:cpEnglish[t]})}
+      const cpMoney=n=>new Intl.NumberFormat(cpLang==='ar'?'ar-SA':'en-SA').format(n)+(cpLang==='ar'?' ر.س':' SAR');
+      function cpRefresh(){let total=0,count=0;services.forEach(s=>{const x=state[s.id],v=cpServices[s.id];if(x.on){total+=s.price*x.qty;count++}const cb=document.querySelector(`[data-id="${s.id}"]`),row=cb.closest('.item'),name=cpLang==='ar'?v[0]:v[1],unit=cpLang==='ar'?v[2]:v[3];row.querySelector('label span').textContent=name;row.querySelector('[data-qty]').setAttribute('aria-label',(cpLang==='ar'?'كمية ':'Quantity for ')+name);row.querySelector('.price').textContent=`${cpMoney(s.price)} / ${unit}`});document.getElementById('total').textContent=cpMoney(total);document.getElementById('selectedCount').textContent=count?(cpLang==='ar'?`${count} خدمات مختارة`:`${count} services selected`):(cpLang==='ar'?'لم يتم اختيار خدمات':'No services selected');const selected=services.filter(s=>state[s.id].on).map(s=>`${cpServices[s.id][cpLang==='ar'?0:1]} (${state[s.id].qty})`).join(cpLang==='ar'?'، ':', '),subject=encodeURIComponent(cpLang==='ar'?'طلب عرض سعر لإنتاج مؤتمر':'Conference production quotation request'),body=encodeURIComponent(cpLang==='ar'?`مرحباً،\nأرغب في عرض سعر للخدمات التالية:\n${selected||'يرجى التواصل لمناقشة المشروع'}\n\nالتقدير الأولي: ${cpMoney(total)}`:`Hello,\nI would like a quotation for the following services:\n${selected||'Please contact me to discuss the project'}\n\nInitial estimate: ${cpMoney(total)}`);document.getElementById('emailCta').href=`mailto:info@gulf-forums.com?subject=${subject}&body=${body}`}
+      window.cpCurrentLanguage=()=>cpLang;window.cpSelections=()=>services.filter(s=>state[s.id].on).map(s=>({service_id:s.id,quantity:state[s.id].qty}));
+      function cpApply(lang){cpLang=lang;localStorage.setItem('cp-language',lang);document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';cpNodes.forEach(x=>x.node.textContent=x.node.textContent.replace(lang==='ar'?x.en:x.ar,lang==='ar'?x.ar:x.en));platformNodes.forEach(x=>x.el.textContent=lang==='ar'?x.ar:x.en);const b=document.getElementById('langToggle');b.textContent=lang==='ar'?'EN':'عربي';b.setAttribute('aria-label',lang==='ar'?'Switch to English':'التبديل إلى العربية');document.querySelector('meta[name="description"]').content=lang==='ar'?'مؤتمر+ من الخليجية للملتقيات: إنتاج مؤتمر متكامل لـ٢٠٠ أو ٣٠٠ مشارك، من المحتوى والأنظمة إلى القاعة والتشغيل.':'Conference+ by Gulf Forums: complete conference production for 200 or 300 delegates, from content and systems to on-site delivery.';document.title=lang==='ar'?'Conference+ | إنتاج مؤتمر متكامل من الخليجية للملتقيات':'Conference+ | Complete conference production by Gulf Forums';cpRefresh()}
+      document.getElementById('langToggle').addEventListener('click',()=>cpApply(cpLang==='ar'?'en':'ar'));document.getElementById('items').addEventListener('change',()=>setTimeout(cpRefresh,0));cpApply(cpLang);
+    })();
+  </script>
+  <script>
+    (()=>{const form=document.getElementById('orderForm');document.querySelectorAll('[data-conference-tier]').forEach(link=>link.addEventListener('click',()=>{const details=form.elements.namedItem('details'),tier=link.dataset.conferenceTier,en=window.cpCurrentLanguage?.()==='en',prefix=en?`Conference+ ${tier} complete conference package. Please quote this tier.`:`باقة مؤتمر+ ${tier} المتكاملة. يرجى تسعير هذه الباقة.`;details.value=details.value.replace(/^(?:Conference\+|باقة مؤتمر\+).*?(?:\n|$)/,'');details.value=details.value?prefix+'\n'+details.value:prefix;}));})();
+    (()=>{const form=document.getElementById('orderForm'),status=document.getElementById('orderStatus'),quoteButton=document.getElementById('quoteSubmitBtn'),payButton=document.getElementById('payOutreachBtn');const payload=()=>{const data=new FormData(form);return {name:data.get('name'),organization:data.get('organization'),email:data.get('email'),phone:data.get('phone'),eventTitle:data.get('eventTitle'),city:data.get('city'),eventDate:data.get('eventDate'),details:data.get('details'),selections:window.cpSelections?.(),fax:data.get('fax')}};const save=async()=>{const response=await fetch('/api/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload())}),result=await response.json().catch(()=>({}));if(!response.ok||!result.id)throw Error('submit_failed');return result.id};form.addEventListener('submit',async e=>{e.preventDefault();const en=window.cpCurrentLanguage?.()==='en';quoteButton.disabled=true;status.textContent=en?'Sending your request…':'جارٍ إرسال طلبك…';try{await save();form.reset();status.textContent=en?'Request received. We will contact you shortly.':'تم استلام طلبك. سنتواصل معك قريباً.'}catch{status.textContent=en?'Could not submit. Please try again or email dr@gulf-forums.com.':'تعذر إرسال الطلب. حاول مرة أخرى أو راسل dr@gulf-forums.com.'}finally{quoteButton.disabled=false}});payButton.addEventListener('click',async()=>{if(!form.reportValidity())return;const en=window.cpCurrentLanguage?.()==='en';quoteButton.disabled=true;payButton.disabled=true;status.textContent=en?'Preparing secure payment…':'جارٍ تجهيز صفحة الدفع الآمنة…';try{const orderId=await save(),response=await fetch('/api/payments/myfatoorah',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({orderId,language:en?'en':'ar'})}),result=await response.json().catch(()=>({}));if(!response.ok||!result.paymentUrl)throw Error('payment_failed');window.location.assign(result.paymentUrl)}catch{status.textContent=en?'Could not start payment. Please try again or email dr@gulf-forums.com.':'تعذر بدء الدفع. حاول مرة أخرى أو راسل dr@gulf-forums.com.';quoteButton.disabled=false;payButton.disabled=false}})})();
+    (()=>{const form=document.getElementById('supplierForm'),status=document.getElementById('supplierStatus'),button=form.querySelector('button[type="submit"]');form.addEventListener('submit',async e=>{e.preventDefault();const en=window.cpCurrentLanguage?.()==='en',data=new FormData(form),categories=data.getAll('categories');if(!categories.length){status.textContent=en?'Select at least one service category.':'اختر مجال خدمة واحداً على الأقل.';return}button.disabled=true;status.textContent=en?'Sending your application…':'جارٍ إرسال طلبك…';try{const response=await fetch('/api/suppliers',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({company:data.get('company'),contact:data.get('contact'),email:data.get('email'),phone:data.get('phone'),location:data.get('location'),website:data.get('website'),categories,description:data.get('description'),consent:data.get('consent')==='on',fax:data.get('fax')})});if(!response.ok)throw Error('submit_failed');form.reset();status.textContent=en?'Registration received. We will contact you if there is a suitable opportunity.':'تم استلام طلب التسجيل. سنتواصل معك عند وجود فرصة مناسبة.'}catch{status.textContent=en?'Could not submit. Please try again or email dr@gulf-forums.com.':'تعذر إرسال الطلب. حاول مرة أخرى أو راسل dr@gulf-forums.com.'}finally{button.disabled=false}})})();
+    (()=>{const form=document.getElementById('contactForm'),status=document.getElementById('contactStatus'),button=form.querySelector('button[type="submit"]');form.addEventListener('submit',async e=>{e.preventDefault();const en=window.cpCurrentLanguage?.()==='en',data=new FormData(form);button.disabled=true;status.textContent=en?'Sending your message…':'جارٍ إرسال رسالتك…';try{const response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:data.get('name'),mobile:data.get('mobile'),email:data.get('email'),company:data.get('company'),position:data.get('position'),message:data.get('message'),fax:data.get('fax')})});if(!response.ok)throw Error('submit_failed');form.reset();status.textContent=en?'Your message has been received. We will contact you shortly.':'تم استلام رسالتك. سنتواصل معك قريباً.'}catch{status.textContent=en?'Could not send. Please try again, email info@gulf-forums.com or use WhatsApp.':'تعذر الإرسال. حاول مرة أخرى أو راسل info@gulf-forums.com أو عبر واتساب.'}finally{button.disabled=false}})})();
+  </script>
+  <script>
+    (()=>{const button=document.getElementById('menuToggle'),menu=document.getElementById('siteMenu');const close=()=>{menu.classList.remove('is-open');button.setAttribute('aria-expanded','false')};button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';menu.classList.toggle('is-open',open);button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?(window.cpCurrentLanguage?.()==='en'?'Close menu':'إغلاق القائمة'):(window.cpCurrentLanguage?.()==='en'?'Open menu':'فتح القائمة'))});menu.addEventListener('click',e=>{if(e.target.closest('a'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});document.addEventListener('click',e=>{if(!e.target.closest('.nav-inner'))close()});window.addEventListener('resize',()=>{if(window.innerWidth>900)close()})})();
+  </script>
+  <script>
+    (()=>{const f=document.getElementById('boothForm'),size=f.querySelector('[name=size]'),options={display55:1500,display65:2000,logo3d:1500,storage:2500,meeting:1500,lounge:2000,brochure:500,panel:750,hospitality:2500,lighting:1500},bases={'9':16500,'18':29000,'36':52000};const money=v=>new Intl.NumberFormat(window.cpCurrentLanguage?.()==='en'?'en-SA':'ar-SA').format(v)+(window.cpCurrentLanguage?.()==='en'?' SAR':' ر.س');const update=()=>{document.querySelector('.booth-render').dataset.size=size.value;const total=bases[size.value]+[...f.querySelectorAll('[name=options]:checked')].reduce((sum,x)=>sum+options[x.value],0);document.getElementById('boothTotal').textContent=money(total);document.getElementById('boothWithVat').textContent=money(Math.round(total*1.15))+(window.cpCurrentLanguage?.()==='en'?' including VAT':' شامل الضريبة');const primary=f.elements.namedItem('primary').value,accent=f.elements.namedItem('accent').value;document.getElementById('boothPrimarySwatch').style.background=primary;document.getElementById('boothAccentSwatch').style.background=accent;document.querySelector('.booth-brand').style.background=primary;document.querySelector('.booth-brand').style.borderBottomColor=accent;document.getElementById('boothCompanyPreview').textContent=f.elements.namedItem('company').value||'YOUR COMPANY'};f.addEventListener('input',update);f.addEventListener('change',update);document.getElementById('langToggle').addEventListener('click',()=>setTimeout(update,0));const logo=f.elements.namedItem('logo'),preview=document.getElementById('boothLogoPreview');logo.addEventListener('change',()=>{if(preview.dataset.url)URL.revokeObjectURL(preview.dataset.url);const file=logo.files[0];if(file&&file.type.startsWith('image/')){preview.dataset.url=URL.createObjectURL(file);preview.src=preview.dataset.url;preview.hidden=false}else{preview.hidden=true}});update();let orderId,checkoutToken;f.addEventListener('submit',async e=>{e.preventDefault();if(!f.reportValidity())return;const en=window.cpCurrentLanguage?.()==='en',status=document.getElementById('boothStatus'),button=f.querySelector('button[type=submit]');button.disabled=true;status.textContent=en?'Saving your booth order…':'جارٍ حفظ طلب الجناح…';try{if(!orderId){const response=await fetch('/api/booths/orders',{method:'POST',body:new FormData(f)}),result=await response.json();if(!response.ok||!result.id)throw Error(result.error||'order');orderId=result.id;checkoutToken=result.checkoutToken}status.textContent=en?'Opening secure deposit payment…':'جارٍ فتح صفحة دفع العربون الآمنة…';const response=await fetch('/api/booths/payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:orderId,checkoutToken,language:en?'en':'ar'})}),result=await response.json();if(!response.ok||!result.paymentUrl)throw Error(result.error||'payment');location.assign(result.paymentUrl)}catch(error){status.textContent=en?('Order saved if submitted. Payment could not start: '+error.message+'. Contact info@gulf-forums.com with order #'+(orderId||'—')):('تم حفظ الطلب إن ظهر رقمه. تعذر بدء الدفع: '+error.message+'. تواصل معنا على info@gulf-forums.com مع رقم الطلب '+(orderId||'—'));button.disabled=false}})})();
+  </script>
+  <script>
+    (()=>{const form=document.getElementById('boothForm'),dialog=document.getElementById('boothPreviewDialog'),open=document.getElementById('generateBoothPreview'),close=document.getElementById('closeBoothPreview'),back=document.getElementById('backToBoothForm'),logo=document.getElementById('boothLogoPreview'),dialogLogo=document.getElementById('boothDialogLogo');const money=n=>new Intl.NumberFormat(window.cpCurrentLanguage?.()==='en'?'en-SA':'ar-SA').format(n)+(window.cpCurrentLanguage?.()==='en'?' SAR':' ر.س');open.addEventListener('click',()=>{const en=window.cpCurrentLanguage?.()==='en',size=form.elements.namedItem('size').value,company=form.elements.namedItem('company').value.trim();dialog.dir=en?'ltr':'rtl';dialog.querySelector('.booth-preview-render').dataset.size=size;document.getElementById('boothDialogCompany').textContent=company||(en?'Your company':'شركتك');const primary=form.elements.namedItem('primary').value,accent=form.elements.namedItem('accent').value,sign=dialog.querySelector('.booth-preview-sign');sign.style.backgroundColor=primary;sign.style.borderBottomColor=accent;document.getElementById('boothDialogPrimary').style.backgroundColor=primary;document.getElementById('boothDialogAccent').style.backgroundColor=accent;dialogLogo.hidden=logo.hidden;if(!logo.hidden)dialogLogo.src=logo.src;const logoFile=form.elements.namedItem('logo').files[0],notice=document.getElementById('boothLogoNotice');notice.hidden=!logoFile||!logo.hidden;notice.textContent=logoFile?(en?'The PDF logo will be placed in the final artwork.':'سيُضاف الشعار بصيغة PDF إلى التصميم النهائي.'):'';document.getElementById('boothDialogSize').textContent=(en?'Design 01 · ':'التصميم 01 · ')+size+' m² · '+({9:'3 × 3',18:'3 × 6',36:'6 × 6'}[size])+' m';const list=document.getElementById('boothDialogOptions');list.replaceChildren();const selected=[...form.querySelectorAll('#boothOptions input:checked')];for(const input of selected){const item=document.createElement('li');item.textContent=input.closest('label').querySelector('span').textContent;list.appendChild(item)}if(!selected.length){const item=document.createElement('li');item.textContent=en?'No optional features selected':'لم تُحدد إضافات';list.appendChild(item)}document.getElementById('boothDialogPrice').textContent=document.getElementById('boothTotal').textContent;dialog.showModal()});close.addEventListener('click',()=>dialog.close());back.addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()})})();
+  </script>
+
+  <script>
+    (()=>{const form=document.getElementById('popupForm'),scene=document.getElementById('popupScene'),image=document.getElementById('popupArtworkPreview'),tableImage=document.getElementById('popupTableImage'),tableBox=document.getElementById('popupTablePreview'),tableUpload=document.getElementById('popupTableUpload'),tableText=document.getElementById('popupTableText'),counter=document.getElementById('popupCounterOverlay'),largeCounter=document.getElementById('popupEnlargeCounter'),price={230:3500,300:4800,344:5800},labels={230:'2.30 × 2.30 m',300:'3.00 × 2.30 m',344:'3.44 × 2.32 m'};let artworkUrl='',tableUrl='',previewUrl='',orderId,checkoutToken;const modal=document.getElementById('popupEnlargeDialog'),largeScene=document.getElementById('popupEnlargeScene'),largeArtwork=document.getElementById('popupEnlargeArtwork');document.getElementById('popupEnlarge').addEventListener('click',()=>{const en=window.cpCurrentLanguage?.()==='en',printFile=form.elements.namedItem('artwork').files[0],status=document.getElementById('popupMockupStatus');if(!printFile){status.textContent=en?'Upload your design first to see it on the pop-up.':'ارفع تصميمك أولاً لمعاينته على البوب أب.';form.elements.namedItem('artwork').focus();return}if(image.hidden){status.textContent=en?'For PDF files, upload a PNG or JPG copy in the preview field to see your artwork on the mockup.':'لمعاينة ملف PDF على المجسم، ارفع نسخة PNG أو JPG في خانة صورة المعاينة.';form.elements.namedItem('previewImage').focus();return}status.textContent='';document.getElementById('popupDialogSize').textContent=labels[form.elements.namedItem('size').value];document.getElementById('popupDialogTable').textContent=form.elements.namedItem('withTable').checked?(en?'With matching table':'مع طاولة عرض متناسقة'):(en?'Backdrop only':'خلفية فقط');largeScene.className=scene.className;largeArtwork.hidden=image.hidden;if(!image.hidden)largeArtwork.src=image.src;else largeArtwork.removeAttribute('src');largeCounter.hidden=counter.hidden;if(!counter.hidden)largeCounter.src=counter.src;else largeCounter.removeAttribute('src');modal.dir=window.cpCurrentLanguage?.()==='en'?'ltr':'rtl';modal.showModal()});document.getElementById('popupEnlargeClose').addEventListener('click',()=>modal.close());modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});const money=n=>new Intl.NumberFormat(window.cpCurrentLanguage?.()==='en'?'en-SA':'ar-SA').format(n)+(window.cpCurrentLanguage?.()==='en'?' SAR':' ر.س');const update=()=>{const printFile=form.elements.namedItem('artwork').files[0],pdf=printFile?.type==='application/pdf';document.getElementById('popupImageCopy').hidden=!pdf;if(!pdf&&previewUrl){URL.revokeObjectURL(previewUrl);previewUrl='';form.elements.namedItem('previewImage').value='';image.hidden=!artworkUrl;if(artworkUrl)image.src=artworkUrl;else image.removeAttribute('src')}const size=form.elements.namedItem('size').value,shape=form.elements.namedItem('shape').value,table=form.elements.namedItem('withTable').checked,net=price[size]+(shape==='curved'?700:0)+(table?1800:0);scene.className=shape+(table?' has-table':'');counter.hidden=!table||!(tableUrl||previewUrl||artworkUrl);if(!counter.hidden)counter.src=tableUrl||previewUrl||artworkUrl;else counter.removeAttribute('src');scene.setAttribute('aria-label',(window.cpCurrentLanguage?.()==='en'?(shape==='curved'?'Curved':'Flat')+' pop-up display close-up':(shape==='curved'?'معاينة بوب أب منحني':'معاينة بوب أب مستقيم')));document.getElementById('popupSizeLabel').textContent=labels[size];document.getElementById('popupShapeLabel').textContent=window.cpCurrentLanguage?.()==='en'?(shape==='curved'?'Curved pop-up':'Flat pop-up'):(shape==='curved'?'بوب أب منحني':'بوب أب مستقيم');document.getElementById('popupNet').textContent=money(net);document.getElementById('popupGross').textContent=money(Math.round(net*1.15));tableBox.hidden=!table;tableUpload.hidden=!table};const showFile=(input,img,which)=>{if(which==='artwork'&&artworkUrl)URL.revokeObjectURL(artworkUrl);if(which==='table'&&tableUrl)URL.revokeObjectURL(tableUrl);if(which==='preview'&&previewUrl)URL.revokeObjectURL(previewUrl);const file=input.files[0],usable=file&&file.type.startsWith('image/'),url=usable?URL.createObjectURL(file):'';if(which==='artwork')artworkUrl=url;else if(which==='preview')previewUrl=url;else tableUrl=url;if(which!=='table'){const active=previewUrl||artworkUrl;image.hidden=!active;if(active)image.src=active;else image.removeAttribute('src')}else{img.hidden=!url;if(url)img.src=url;else img.removeAttribute('src');tableText.hidden=!!url}document.getElementById('popupMockupStatus').textContent='';update()};form.addEventListener('change',e=>{orderId=undefined;checkoutToken=undefined;if(e.target.name==='artwork')showFile(e.target,image,'artwork');if(e.target.name==='previewImage'){const file=e.target.files[0];if(file&&file.size>8_000_000){e.target.value='';document.getElementById('popupMockupStatus').textContent=window.cpCurrentLanguage?.()==='en'?'Preview image must be under 8 MB.':'يجب أن تكون صورة المعاينة أقل من ٨ ميغابايت.'}showFile(e.target,image,'preview')}if(e.target.name==='tableArtwork')showFile(e.target,tableImage,'table');if(e.target.name==='withTable'&&!e.target.checked){form.elements.namedItem('tableArtwork').value='';showFile(form.elements.namedItem('tableArtwork'),tableImage,'table')}update()});document.getElementById('langToggle').addEventListener('click',()=>setTimeout(update,0));form.addEventListener('input',()=>{orderId=undefined;checkoutToken=undefined});update();form.addEventListener('submit',async e=>{e.preventDefault();if(!form.reportValidity())return;const en=window.cpCurrentLanguage?.()==='en',status=document.getElementById('popupStatus'),button=form.querySelector('[type=submit]');button.disabled=true;status.textContent=en?'Saving your order…':'جارٍ حفظ الطلب…';try{if(!orderId){const payload=new FormData(form);payload.delete('previewImage');const response=await fetch('/api/popups/orders',{method:'POST',body:payload}),result=await response.json();if(!response.ok||!result.id)throw Error(result.error||'order');orderId=result.id;checkoutToken=result.checkoutToken}status.textContent=en?'Opening secure payment…':'جارٍ فتح صفحة الدفع الآمنة…';const response=await fetch('/api/popups/payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:orderId,checkoutToken,language:en?'en':'ar'})}),result=await response.json();if(!response.ok||!result.paymentUrl)throw Error(result.error||'payment');location.assign(result.paymentUrl)}catch(error){status.textContent=(en?'Could not open payment. Contact info@gulf-forums.com with order #':'تعذر فتح الدفع. تواصل معنا على info@gulf-forums.com مع رقم الطلب ')+(orderId||'—');button.disabled=false}})})();
+  </script>
+  <script>
+    (()=>{
+      let scene,camera,renderer,model,artworkTexture,controls;
+      const container=document.getElementById('popupScene3D');
+      const fallbackScene=document.getElementById('popupScene');
+      if(!container){
+        console.error('popupScene3D container not found');
+        if(fallbackScene)fallbackScene.hidden=false;
+        return;
+      }
+      
+      function showFallback(){
+        container.style.display='none';
+        if(fallbackScene)fallbackScene.hidden=false;
+      }
+      
+      function loadModel(withTable){
+        if(model){
+          scene.remove(model);
+          model=null;
+        }
+        
+        const objFile=withTable?'./new_scene111_0.obj':'./new_scene_0.obj';
+        const mtlFile=withTable?'./new_scene111.mtl':'./new_scene.mtl';
+        
+        console.log('Loading model:',objFile);
+        
+        if(typeof THREE.OBJLoader!=='undefined'){
+          const mtlLoader=new THREE.MTLLoader();
+          mtlLoader.load(mtlFile,function(materials){
+            materials.preload();
+            const objLoader=new THREE.OBJLoader();
+            objLoader.setMaterials(materials);
+            objLoader.load(objFile,function(object){
+              model=object;
+              
+              const box=new THREE.Box3().setFromObject(model);
+              const center=box.getCenter(new THREE.Vector3());
+              const size=box.getSize(new THREE.Vector3());
+              
+              console.log('Model size:',size);
+              console.log('Model center:',center);
+              
+              model.position.sub(center);
+              model.position.y=0;
+              
+              const maxDim=Math.max(size.x,size.y,size.z);
+              const scale=withTable?20/maxDim:2/maxDim;
+              model.scale.set(scale,scale,scale);
+              
+              scene.add(model);
+              
+              model.traverse(function(child){
+                if(child.isMesh){
+                  console.log('Mesh found:',child.name);
+                  if(child.geometry && child.geometry.attributes.uv){
+                    console.log('Mesh has UVs, count:',child.geometry.attributes.uv.count);
+                  }else{
+                    console.warn('Mesh does NOT have UVs');
+                  }
+                  if(child.material){
+                    console.log('Material type:',child.material.type);
+                  }
+                }
+              });
+              
+              if(artworkTexture){
+                applyArtwork(artworkTexture.image?artworkTexture.image.src:null);
+              }
+            },function(xhr){
+              console.log('Loading progress:',(xhr.loaded/xhr.total*100)+'%');
+            },function(error){
+              console.error('Error loading OBJ model:',error);
+            });
+          },undefined,function(error){
+            console.error('Error loading MTL:',error);
+            const objLoader=new THREE.OBJLoader();
+            objLoader.load(objFile,function(object){
+              model=object;
+              const box=new THREE.Box3().setFromObject(model);
+              const center=box.getCenter(new THREE.Vector3());
+              const size=box.getSize(new THREE.Vector3());
+              console.log('Model size (no MTL):',size);
+              model.position.sub(center);
+              model.position.y=0;
+              const maxDim=Math.max(size.x,size.y,size.z);
+              const scale=withTable?20/maxDim:15/maxDim;
+              model.scale.set(scale,scale,scale);
+              scene.add(model);
+              if(artworkTexture){
+                applyArtwork(artworkTexture.image?artworkTexture.image.src:null);
+              }
+            },undefined,function(error){
+              console.error('Error loading OBJ without MTL:',error);
+            });
+          });
+        }
+      }
+      
+      function init3D(){
+        try{
+          if(typeof THREE==='undefined'){
+            console.error('Three.js not loaded');
+            showFallback();
+            return;
+          }
+          
+          scene=new THREE.Scene();
+          scene.background=new THREE.Color(0xeef0f5);
+          
+          const width=container.clientWidth||400;
+          const height=container.clientHeight||400;
+          camera=new THREE.PerspectiveCamera(45,width/height,0.1,1000);
+          camera.position.set(0,2,5);
+          camera.lookAt(0,0,0);
+          
+          renderer=new THREE.WebGLRenderer({antialias:true});
+          renderer.setSize(width,height);
+          renderer.setPixelRatio(window.devicePixelRatio);
+          container.innerHTML='';
+          container.appendChild(renderer.domElement);
+          
+          const ambientLight=new THREE.AmbientLight(0xffffff,0.6);
+          scene.add(ambientLight);
+          
+          const directionalLight=new THREE.DirectionalLight(0xffffff,0.8);
+          directionalLight.position.set(5,10,7);
+          scene.add(directionalLight);
+          
+          const withTableCheckbox=document.getElementById('popupWithTable');
+          console.log('Checkbox found:',withTableCheckbox);
+          const initialWithTable=withTableCheckbox?withTableCheckbox.checked:false;
+          console.log('Initial withTable:',initialWithTable);
+          
+          setTimeout(function(){
+            loadModel(initialWithTable);
+            
+            if(typeof THREE.OrbitControls!=='undefined'){
+              controls=new THREE.OrbitControls(camera,renderer.domElement);
+              controls.enableDamping=true;
+              controls.dampingFactor=0.05;
+              controls.autoRotate=true;
+              controls.autoRotateSpeed=1;
+            }
+            
+            camera.position.set(0,1,5);
+            camera.lookAt(0,1,0);
+            
+            animate();
+          },500);
+          
+          if(withTableCheckbox){
+            withTableCheckbox.addEventListener('change',function(){
+              console.log('Checkbox changed, checked:',this.checked);
+              loadModel(this.checked);
+            });
+          }
+          
+          window.addEventListener('resize',onWindowResize);
+        }catch(e){
+          console.error('Error initializing 3D scene:',e);
+          showFallback();
+        }
+      }
+      
+      function onWindowResize(){
+        if(!camera||!renderer||!container)return;
+        const width=container.clientWidth;
+        const height=container.clientHeight;
+        camera.aspect=width/height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width,height);
+      }
+      
+      function animate(){
+        requestAnimationFrame(animate);
+        if(controls){
+          controls.update();
+        }
+        renderer.render(scene,camera);
+      }
+      
+      function applyArtwork(imageUrl){
+        if(!model){
+          console.warn('Model not loaded yet');
+          return;
+        }
+        const textureLoader=new THREE.TextureLoader();
+        textureLoader.load(imageUrl,function(texture){
+          texture.wrapS=THREE.ClampToEdgeWrapping;
+          texture.wrapT=THREE.ClampToEdgeWrapping;
+          texture.minFilter=THREE.LinearFilter;
+          texture.magFilter=THREE.LinearFilter;
+          artworkTexture=texture;
+          
+          console.log('Texture loaded, applying to meshes');
+          let meshCount=0;
+          model.traverse(function(child){
+            if(child.isMesh){
+              meshCount++;
+              if(child.material){
+                if(Array.isArray(child.material)){
+                  child.material.forEach(mat=>{
+                    mat.map=texture;
+                    mat.needsUpdate=true;
+                  });
+                }else{
+                  child.material.map=texture;
+                  child.material.needsUpdate=true;
+                }
+                console.log('Applied texture to mesh:',child.name||'unnamed');
+              }else{
+                console.warn('Mesh has no material:',child.name||'unnamed');
+              }
+            }
+          });
+          console.log('Total meshes processed:',meshCount);
+        },undefined,function(error){
+          console.error('Error loading texture:',error);
+        });
+      }
+      
+      if(document.readyState==='loading'){
+        document.addEventListener('DOMContentLoaded',init3D);
+      }else{
+        init3D();
+      }
+      
+      const form=document.getElementById('popupForm');
+      if(form){
+        const artworkInput=form.elements.namedItem('artwork');
+        if(artworkInput){
+          artworkInput.addEventListener('change',function(){
+            const file=this.files[0];
+            if(file&&file.type.startsWith('image/')){
+              const url=URL.createObjectURL(file);
+              applyArtwork(url);
+            }
+          });
+        }
+      }
+      
+      const enlargeButton=document.getElementById('popupEnlarge');
+      const enlargeDialog=document.getElementById('popupEnlargeDialog');
+      const enlargeClose=document.getElementById('popupEnlargeClose');
+      const enlargeContainer=document.getElementById('popupEnlargeScene3D');
+      
+      if(enlargeButton&&enlargeDialog&&enlargeContainer){
+        let enlargeScene,enlargeCamera,enlargeRenderer,enlargeModel,enlargeControls;
+        
+        function initEnlarge3D(){
+          if(!enlargeContainer)return;
+          
+          try{
+            enlargeScene=new THREE.Scene();
+            enlargeScene.background=new THREE.Color(0xeef0f5);
+            
+            const width=enlargeContainer.clientWidth||800;
+            const height=enlargeContainer.clientHeight||600;
+            enlargeCamera=new THREE.PerspectiveCamera(45,width/height,0.1,1000);
+            enlargeCamera.position.set(0,2,5);
+            enlargeCamera.lookAt(0,0,0);
+            
+            enlargeRenderer=new THREE.WebGLRenderer({antialias:true});
+            enlargeRenderer.setSize(width,height);
+            enlargeRenderer.setPixelRatio(window.devicePixelRatio);
+            enlargeContainer.innerHTML='';
+            enlargeContainer.appendChild(enlargeRenderer.domElement);
+            
+            const ambientLight=new THREE.AmbientLight(0xffffff,0.6);
+            enlargeScene.add(ambientLight);
+            
+            const directionalLight=new THREE.DirectionalLight(0xffffff,0.8);
+            directionalLight.position.set(5,10,7);
+            enlargeScene.add(directionalLight);
+            
+            const withTableCheckbox=document.getElementById('popupWithTable');
+            const withTable=withTableCheckbox?withTableCheckbox.checked:false;
+            const objFile=withTable?'./new_scene111_0.obj':'./new_scene_0.obj';
+            const mtlFile=withTable?'./new_scene111.mtl':'./new_scene.mtl';
+            
+            if(typeof THREE.OBJLoader!=='undefined'){
+              const mtlLoader=new THREE.MTLLoader();
+              mtlLoader.load(mtlFile,function(materials){
+                materials.preload();
+                const objLoader=new THREE.OBJLoader();
+                objLoader.setMaterials(materials);
+                objLoader.load(objFile,function(object){
+                  enlargeModel=object;
+                  
+                  const box=new THREE.Box3().setFromObject(enlargeModel);
+                  const center=box.getCenter(new THREE.Vector3());
+                  const size=box.getSize(new THREE.Vector3());
+                  
+                  enlargeModel.position.sub(center);
+                  enlargeModel.position.y=0;
+                  
+                  const maxDim=Math.max(size.x,size.y,size.z);
+                  const scale=withTable?20/maxDim:15/maxDim;
+                  enlargeModel.scale.set(scale,scale,scale);
+                  
+                  enlargeScene.add(enlargeModel);
+                  
+                  if(artworkTexture){
+                    enlargeModel.traverse(function(child){
+                      if(child.isMesh&&child.material){
+                        child.material.map=artworkTexture;
+                        child.material.needsUpdate=true;
+                      }
+                    });
+                  }
+                  
+                  if(typeof THREE.OrbitControls!=='undefined'){
+                    enlargeControls=new THREE.OrbitControls(enlargeCamera,enlargeRenderer.domElement);
+                    enlargeControls.enableDamping=true;
+                    enlargeControls.dampingFactor=0.05;
+                    enlargeControls.autoRotate=true;
+                    enlargeControls.autoRotateSpeed=1;
+                  }
+                  
+                  function animateEnlarge(){
+                    requestAnimationFrame(animateEnlarge);
+                    if(enlargeControls){
+                      enlargeControls.update();
+                    }
+                    enlargeRenderer.render(enlargeScene,enlargeCamera);
+                  }
+                  animateEnlarge();
+                });
+              });
+            }
+          }catch(e){
+            console.error('Error initializing enlarge 3D:',e);
+          }
+        }
+        
+        enlargeButton.addEventListener('click',function(){
+          enlargeDialog.showModal();
+          setTimeout(initEnlarge3D,100);
+        });
+        
+        enlargeClose.addEventListener('click',function(){
+          enlargeDialog.close();
+        });
+      }
+      
+      window.popup3D={applyArtwork};
+    })();
+  </script>
+
+
+</body></html>
